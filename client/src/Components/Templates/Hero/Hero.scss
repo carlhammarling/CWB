@@ -1,0 +1,39 @@
+@import "../../../Styles/variables";
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .heroImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../Assets/images/hero-bg.png");
+    background-size: cover;
+    background-position: 43%;
+    height: 32.5rem;
+    width: 100%;
+
+    @media (min-width: 550px) {
+        height: 47rem;
+    }
+
+    .heroLogo {
+      position: relative;
+
+      h1 span {
+        font-size: 30%;
+        letter-spacing: 10px;
+        right: 0;
+        color: $darkestGray;
+        bottom: 20%;
+        position: absolute;
+      }
+    }
+  }
+  
+  .liftBanner {
+        transform: translateY(-50%);
+  }
+}

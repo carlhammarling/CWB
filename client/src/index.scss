@@ -1,0 +1,22 @@
+@use './Styles/fonts';
+@import './Styles/variables';
+@import './Styles/fonts';
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  @include fonts;
+}
+

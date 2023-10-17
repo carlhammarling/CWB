@@ -1,0 +1,46 @@
+import { useState, useEffect } from "react";
+import logo from './logo.svg';
+import './App.css';
+
+import axios from 'axios';
+
+function App() {
+
+  const BASEURL = "http://localhost:9999"
+  const [coworkingSpaces, setCoworkingSpaces] = useState()
+
+  useEffect(() => {
+    const getCoworkingSpaces = async () => {
+      try {
+        const res = await axios.get(BASEURL + '/api/cowork');
+        setCoworkingSpaces(res.data)
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+    
+    getCoworkingSpaces();
+  }, [])
+
+  useEffect(() => {
+      console.log(coworkingSpaces)
+  }, [coworkingSpaces])
+
+
+  return (
+    <div className="App">
+      <header className="App-header">
+      {coworkingSpaces && coworkingSpaces.map((space) => (
+        <div key={space._id}>
+          <h1>{space.name}</h1>
+          <p>{space.description}</p>
+        </div>
+      ))}
+      </header>
+      
+    </div>
+  );
+}
+
+export default App;

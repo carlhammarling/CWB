@@ -1,0 +1,44 @@
+@import "../../../Styles/variables";
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background-image: url("../../../Assets/images/footer-bg.png");
+    padding: 3rem;
+    width: 100%;
+    background-size: cover;
+    
+    .footerBannerText {
+        width: 60%;
+    }
+
+    .footerInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+    }
+
+    .footerBottom {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+
+        .footerIcons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: $white;
+            font-size: 1.75rem;
+        }
+        
+    }
+}
