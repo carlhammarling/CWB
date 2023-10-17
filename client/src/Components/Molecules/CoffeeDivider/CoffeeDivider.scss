@@ -1,0 +1,49 @@
+@import "../../../Styles/variables";
+
+.coffeeDivider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 3rem;
+  background-color: $darkestGray;
+
+  .coffeeCircle {
+    display: flex;
+    justify-content: center;
+    background-color: $coffee;
+    border-radius: 50%;
+    padding: 0.75rem;
+
+    @media (min-width: $breakpoint) {
+      padding: 2rem;
+      img {
+        width: 90px;
+      }
+    }
+    @media (min-width: $breakpoint2) {
+      padding: 3rem;
+      img {
+        width: 120px;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint) {
+    flex-direction: row;
+    padding: 3rem 10rem;
+    justify-content: space-between;
+
+    p {
+      width: 37rem;
+    }
+  }
+  @media (min-width: $breakpoint2) {
+    padding: 3.5rem 11.25rem;
+
+    p {
+      width: 45rem;
+    }
+  }
+}

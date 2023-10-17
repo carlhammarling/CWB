@@ -1,0 +1,37 @@
+@import "../../../Styles/variables";
+
+.tuktukDivider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 3rem;
+
+  img {
+    height: 18.5rem;
+  }
+
+  @media (min-width: $breakpoint) {
+    flex-direction: row;
+    padding: 3rem 14rem;
+    justify-content: space-between;
+
+    p {
+      width: 37rem;
+    }
+    img {
+        height: 25rem;
+      }
+  }
+  @media (min-width: $breakpoint2) {
+    padding: 3.5rem 14rem;
+
+    p {
+      width: 45rem;
+    }
+    img {
+        height: 30rem;
+      }
+  }
+}
