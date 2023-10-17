@@ -1,44 +1,96 @@
 @import "../../../Styles/variables";
 
-
 .footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  background-image: url("../../../Assets/images/footer-bg.png");
+  background-size: auto 1050px;
+  background-position: center;
+  padding: 3rem;
+
+  @media (min-width: $breakpoint) {
+    padding: 6.25rem 10rem;
+    background-size: cover;
+    gap: 7rem;
+
+  }
+
+  .footerBannerText {
+    width: 60%;
+    @media (min-width: $breakpoint) {
+      width: 50%;
+    }
+  }
+
+  .footerInfoMobile {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    background-image: url("../../../Assets/images/footer-bg.png");
-    padding: 3rem;
-    width: 100%;
-    background-size: cover;
+    gap: 1.5rem;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+  .footerInfoDesktop {
+    display: flex;
+    justify-content: space-between;
+
+    .footerColumn {
+        display: flex;
+        width: 22.5rem;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      @media (min-width: $breakpoint) {
+        gap: 1rem;
+
+      }
+    }
     
-    .footerBannerText {
-        width: 60%;
+
+    @media (max-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  .footerBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+
+    @media (min-width: $breakpoint) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
     }
 
-    .footerInfo {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+    
 
-        section {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
+
+    .footerIcons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      color: $white;
+
+      &.paymentIcons {
+        @media (max-width: $breakpoint) {
+            display: none;
+          }
     }
-
-    .footerBottom {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-
-        .footerIcons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            color: $white;
-            font-size: 1.75rem;
-        }
-        
     }
+  }
 }

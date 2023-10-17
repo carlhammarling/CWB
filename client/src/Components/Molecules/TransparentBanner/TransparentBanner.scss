@@ -3,6 +3,7 @@
 .transparentBanner {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     text-align: center;
     padding: 1rem;
@@ -12,12 +13,13 @@
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.08);
 
     .fa-regular {
-        font-size: 2rem;
+        // font-size: 2rem;
         color: $yellow;
-        align-self: center;
     }
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
         width: 1015px;
         padding: 2rem;
+        gap: 1rem;
+
       }
   }

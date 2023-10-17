@@ -9,9 +9,8 @@
     font-style: normal;
     font-weight: 700;
     line-height: 125%;
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 5rem;
-      //   font-size: 78px;
       line-height: 111%; /* 86.58px */
     }
   }
@@ -25,7 +24,7 @@
     text-align: center;
     display: flex;
 
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 11.25rem;
     }
   }
@@ -36,7 +35,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 139.5%; /* 33.48px */
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 2.25rem;
       line-height: normal;
     }
@@ -56,7 +55,7 @@
     &.white {
       color: $white;
     }
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 2rem;
     }
   }
@@ -67,7 +66,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 3.5rem;
     }
   }
@@ -93,7 +92,7 @@
       color: $white;
     }
 
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 1.5rem;
     }
   }
@@ -106,13 +105,13 @@
     font-weight: 500;
     line-height: normal;
 
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 1.75rem;
     }
   }
 
   p.xs {
-    color: $white;
+    color: $lightGray;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 500;
@@ -122,8 +121,12 @@
       color: $darkGray;
       font-weight: 800;
     }
-    @media (min-width: 550px) {
-      color: $lightGray;
+
+    &.white {
+      color: $white;
+
+    }
+    @media (min-width: $breakpoint) {
 
       &.bold {
         font-size: 1rem;
@@ -138,7 +141,7 @@
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 600;
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-family: Rajdhani;
       font-size: 1rem;
     }
@@ -161,12 +164,22 @@
     & span.turquoise {
       color: $turquoise;
     }
-    @media (min-width: 550px) {
+    @media (min-width: $breakpoint) {
       font-size: 4rem;
     }
   }
 
   ul {
     list-style: none;
+  }
+
+  i {
+    font-size: 1.75rem;
+
+    @media (min-width: $breakpoint) {
+      font-size: 3rem;
+
+    }
+
   }
 }
