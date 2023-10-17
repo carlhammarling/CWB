@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.scss";
+import ActivityAtomRow from "../../Molecules/ActivityAtomRow/ActivityAtomRow";
 
 const Footer = () => {
   return (
@@ -44,6 +45,7 @@ const Footer = () => {
               logos for you, all for you to receive the information in a smooth
               and fast way with us at CO-Working Bangkok
             </p>
+            <ActivityAtomRow />
           </section>
         </div>
         <div className="footerColumn">

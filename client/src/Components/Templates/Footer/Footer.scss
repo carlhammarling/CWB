@@ -3,7 +3,8 @@
 .footer {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  justify-content: space-between;
+  height: 100vh;
   background-image: url("../../../Assets/images/footer-bg.png");
   background-size: auto 1050px;
   background-position: center;
@@ -12,7 +13,6 @@
   @media (min-width: $breakpoint) {
     padding: 6.25rem 10rem;
     background-size: cover;
-    gap: 7rem;
 
   }
 
@@ -44,7 +44,7 @@
 
     .footerColumn {
         display: flex;
-        width: 22.5rem;
+        width: 22rem;
         flex-direction: column;
         gap: 4rem;
     }

@@ -16,11 +16,15 @@
     width: 100%;
 
     @media (min-width: $breakpoint) {
+        height: 35rem;
+    }
+    @media (min-width: $breakpoint2) {
         height: 47rem;
     }
 
     .heroLogo {
       position: relative;
+      // mix-blend-mode: overlay;
 
       h1 span {
         font-size: 30%;

@@ -10,6 +10,10 @@
     font-weight: 700;
     line-height: 125%;
     @media (min-width: $breakpoint) {
+      font-size: 4rem;
+      line-height: 111%; /* 86.58px */
+    }
+    @media (min-width: $breakpoint2) {
       font-size: 5rem;
       line-height: 111%; /* 86.58px */
     }
@@ -25,6 +29,9 @@
     display: flex;
 
     @media (min-width: $breakpoint) {
+      font-size: 9rem;
+    }
+    @media (min-width: $breakpoint2) {
       font-size: 11.25rem;
     }
   }
@@ -36,6 +43,10 @@
     font-weight: 700;
     line-height: 139.5%; /* 33.48px */
     @media (min-width: $breakpoint) {
+      font-size: 2rem;
+      line-height: normal;
+    }
+    @media (min-width: $breakpoint2) {
       font-size: 2.25rem;
       line-height: normal;
     }
@@ -55,8 +66,8 @@
     &.white {
       color: $white;
     }
-    @media (min-width: $breakpoint) {
-      font-size: 2rem;
+    @media (min-width: $breakpoint2) {
+      font-size: 1.8rem;
     }
   }
 
@@ -67,6 +78,9 @@
     font-weight: 700;
     line-height: normal;
     @media (min-width: $breakpoint) {
+      font-size: 3rem;
+    }
+    @media (min-width: $breakpoint2) {
       font-size: 3.5rem;
     }
   }
@@ -92,7 +106,7 @@
       color: $white;
     }
 
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint2) {
       font-size: 1.5rem;
     }
   }
@@ -165,6 +179,9 @@
       color: $turquoise;
     }
     @media (min-width: $breakpoint) {
+      font-size: 3rem;
+    }
+    @media (min-width: $breakpoint2) {
       font-size: 4rem;
     }
   }
@@ -175,8 +192,15 @@
 
   i {
     font-size: 1.75rem;
-
+transition: ease-in-out .2s;
+    &:hover {
+      scale: 1.05;
+  }
     @media (min-width: $breakpoint) {
+      font-size: 2.5rem;
+
+    }
+    @media (min-width: $breakpoint2) {
       font-size: 3rem;
 
     }

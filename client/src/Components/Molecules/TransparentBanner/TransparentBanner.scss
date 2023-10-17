@@ -17,9 +17,12 @@
         color: $yellow;
     }
     @media (min-width: $breakpoint) {
-        width: 1015px;
+        width: 55vw;
+        padding: 1.6rem;
+        gap: 1rem;
+      }
+    @media (min-width: $breakpoint2) {
         padding: 2rem;
         gap: 1rem;
-
       }
   }
