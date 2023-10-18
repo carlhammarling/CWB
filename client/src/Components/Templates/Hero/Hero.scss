@@ -1,43 +1,39 @@
 @import "../../../Styles/variables";
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-image: url("../../../Assets/images/hero-bg.png");
+  background-size: cover;
+  background-position: 43%;
+  height: 32.5rem;
+  margin-bottom: 3rem;
 
-  .heroImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url("../../../Assets/images/hero-bg.png");
-    background-size: cover;
-    background-position: 43%;
-    height: 32.5rem;
-    width: 100%;
+  @media (min-width: $breakpoint) {
+    height: 35rem;
+  }
+  @media (min-width: $breakpoint2) {
+    height: 47rem;
+  }
 
-    @media (min-width: $breakpoint) {
-        height: 35rem;
-    }
-    @media (min-width: $breakpoint2) {
-        height: 47rem;
-    }
+  .heroLogo {
+    position: relative;
 
-    .heroLogo {
-      position: relative;
-      // mix-blend-mode: overlay;
-
-      h1 span {
-        font-size: 30%;
-        letter-spacing: 10px;
-        right: 0;
-        color: $darkestGray;
-        bottom: 20%;
-        position: absolute;
-      }
+    h1 span {
+      font-size: 30%;
+      letter-spacing: 10px;
+      right: 0;
+      color: $darkestGray;
+      bottom: 20%;
+      position: absolute;
     }
   }
-  
   .liftBanner {
-        transform: translateY(-50%);
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
   }
 }

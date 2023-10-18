@@ -1,0 +1,14 @@
+@import "../../../Styles/variables";
+
+
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $space-y-1;
+    margin-inline: $space-x-1;
+
+    @media (min-width: $breakpoint) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}

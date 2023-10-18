@@ -1,0 +1,16 @@
+@import "../../../Styles/variables";
+
+.cardPrice {
+  align-self: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $white;
+  border-radius: 0px 12px 0px 12px;
+  padding: 0px 12px;
+  height: 28px;
+  @media (min-width: $breakpoint) {
+    border-radius: 0px 16px 0px 16px;
+    padding: 8px 16px;
+  }
+}

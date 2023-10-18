@@ -1,0 +1,11 @@
+@import "../../../Styles/variables";
+
+.coworkCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $lightGray;
+  height: 508px;
+  border-radius: 0px 36px 0px 36px;
+  padding: 12px;
+}

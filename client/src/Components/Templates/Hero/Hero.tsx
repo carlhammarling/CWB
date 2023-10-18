@@ -5,16 +5,13 @@ import TransparentBanner from "../../Molecules/TransparentBanner/TransparentBann
 const Hero = () => {
   return (
     <div className="hero">
-      <div className="heroImage">
-        <div className="heroLogo">
-          <h1 className="heroHeader">
-            COWORKING <span>BANGKOK</span>
-          </h1>
-        </div>
+      <div className="heroLogo">
+        <h1 className="heroHeader">
+          COWORKING <span>BANGKOK</span>
+        </h1>
       </div>
       <div className="liftBanner">
-      <TransparentBanner />
-        
+        <TransparentBanner />
       </div>
     </div>
   );

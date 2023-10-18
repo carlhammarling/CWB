@@ -1,0 +1,15 @@
+@import "../../../Styles/variables";
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: $whiteFade;
+  border-radius: 0px 24px 0px 24px;
+  padding: 8px 12px;
+
+  .cardBottom {
+    display: flex;
+    justify-content: space-between;
+  }
+}
