@@ -4,13 +4,12 @@ import { useDataContext } from "../../../Context/DataContext";
 
 
 
-const CardWrapper = () => {
+const CardWrapper = (props: CardWrapperProps) => {
   
-  const { coworkingSpaces } = useDataContext();
-
+  
   return (
     <div className='cardWrapper'>
-      {coworkingSpaces && coworkingSpaces.map(space => (
+      {props.coworkingSpaces && props.coworkingSpaces.map(space => (
         <CoworkCard key={space._id} {...space}/>
       ))}
     </div>

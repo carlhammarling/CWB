@@ -15,7 +15,7 @@ const coworkSchema = mongoose.Schema({
         message: { type: String, required: false }
     }],
     images: { type: [String], required: true },
-    fascilities: { type: [String], required: false }
+    facilities: { type: [String], required: false }
 })
 
 module.exports = mongoose.model('Cowork', coworkSchema)

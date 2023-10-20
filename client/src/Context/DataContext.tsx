@@ -24,9 +24,6 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     getCoworkingSpaces();
   }, []);
 
-  // useEffect(() => {
-  //   console.log(coworkingSpaces);
-  // }, [coworkingSpaces]);
 
   return (
     <DataContext.Provider value={{ coworkingSpaces, setCoworkingSpaces }}>

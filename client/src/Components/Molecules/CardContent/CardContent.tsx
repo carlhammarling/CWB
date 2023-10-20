@@ -3,12 +3,12 @@ import "./CardContent.scss";
 import ActivityAtomRow from "../ActivityAtomRow/ActivityAtomRow";
 import CardPrice from "../CardPrice/CardPrice";
 
-const CardContent = (props: CardContentProps) => {
+const CardContent = (props: CoworkingSpace) => {
   return (
     <div className="cardContent">
       <h2 className="radjhani">{props.name}</h2>
       <div className="cardLocation">
-        <p className="radjhani">{props.adress}</p>
+        <p className="radjhani">{props.adress.slice(0,25)}</p>
       </div>
       <div className="cardBottom">
         <ActivityAtomRow />

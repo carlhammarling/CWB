@@ -10,15 +10,13 @@ interface DataProviderProps {
 interface CardRatingsProps {
     reviews: Review[];
 }
-interface CardContentProps {
-    name: string;
-    adress: string;
-    fascilities: string[];
-    price: Price;
-}
 
 interface CardPriceProps {
  price: Price;
+}
+
+interface CardWrapperProps {
+    coworkingSpaces: CoworkingSpace[]
 }
     
 

@@ -6,15 +6,15 @@ const Cowork = require('../schemas/coworkSchema')
 
 //POST
 exports.postCowork = (req, res) => {
-    const { name, adress, email, description, price, reviews, images, fascilities } = req.body
+    const { name, adress, email, description, price, reviews, images, facilities } = req.body
 
-    if( !name || !adress || !email || !description || !price || !reviews || !images || !fascilities ) {
+    if( !name || !adress || !email || !description || !price || !reviews || !images || !facilities ) {
         return res.status(400).json({
             message: 'You have to fill in all the fields.'
         })
     }
 
-    Cowork.create({ name, adress, email, description, price, reviews, images, fascilities })
+    Cowork.create({ name, adress, email, description, price, reviews, images, facilities })
         .then(data => res.status(201).json(data))
         .catch(() => res.status(400).json({
             message: 'Something went wrong while posting.'

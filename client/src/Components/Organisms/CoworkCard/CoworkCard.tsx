@@ -7,14 +7,11 @@ const CoworkCard = (props: CoworkingSpace) => {
   return (
     <div
       className="coworkCard"
-      style={{ backgroundImage: `url(${props.images[4]})` }}
+      style={{ backgroundImage: `url(${props.images[0]})` }}
     >
       {props.reviews && <CardRatings reviews={props.reviews} />}
       <CardContent
-        name={props.name}
-        adress={props.adress}
-        fascilities={props.fascilities}
-        price={props.price}
+        {...props}
       />
     </div>
   );

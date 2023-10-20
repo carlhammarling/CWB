@@ -10,6 +10,8 @@ interface Price {
     week: number;
 }
 
+type Facility = "coffee" | "gym" | "food" | "safetybox" | "activities";
+
 interface CoworkingSpace {
     _id: string;
     name: string;
@@ -17,7 +19,7 @@ interface CoworkingSpace {
     description: string;
     email: string;
     images: string[];
-    fascilities: string[];
+    facilities: Facility[];
     price: Price;
     reviews?: Review[];
     __v: number;
