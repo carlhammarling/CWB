@@ -1,6 +1,6 @@
 import React from "react";
 import "./CardContent.scss";
-import ActivityAtomRow from "../ActivityAtomRow/ActivityAtomRow";
+import ActivityAtomRow from "../FacilityAtomRow/FacilityAtomRow";
 import CardPrice from "../CardPrice/CardPrice";
 
 const CardContent = (props: CoworkingSpace) => {
@@ -8,11 +8,11 @@ const CardContent = (props: CoworkingSpace) => {
     <div className="cardContent">
       <h2 className="radjhani">{props.name}</h2>
       <div className="cardLocation">
-        <p className="radjhani">{props.adress.slice(0,25)}</p>
+        <p className="radjhani">{props.adress.slice(0, 25)}</p>
       </div>
       <div className="cardBottom">
-        <ActivityAtomRow />
-        <CardPrice price={props.price}/>
+        <ActivityAtomRow facilities={props.facilities} />
+        <CardPrice price={props.price} />
       </div>
     </div>
   );

@@ -15,6 +15,10 @@ interface CardPriceProps {
  price: Price;
 }
 
+interface FacilityAtomProps {
+ facilities?: Facility[];
+}
+
 interface CardWrapperProps {
     coworkingSpaces: CoworkingSpace[]
 }

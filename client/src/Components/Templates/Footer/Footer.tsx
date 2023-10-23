@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.scss";
-import ActivityAtomRow from "../../Molecules/ActivityAtomRow/ActivityAtomRow";
+import FacilityAtomRow from "../../Molecules/FacilityAtomRow/FacilityAtomRow";
 
 const Footer = () => {
   return (
@@ -45,14 +45,17 @@ const Footer = () => {
               logos for you, all for you to receive the information in a smooth
               and fast way with us at CO-Working Bangkok
             </p>
-            <ActivityAtomRow />
+            <FacilityAtomRow
+              facilities={["coffee", "gym", "food", "safetybox", "activities"]}
+            />
           </section>
         </div>
         <div className="footerColumn">
           <section>
             <h2 className="radjhani white">SOCIALS</h2>
             <p className="white">
-            Our customers generally likes being socials, therefore some of our places arranges:
+              Our customers generally likes being socials, therefore some of our
+              places arranges:
             </p>
             <ul>
               <li className="white">- After work</li>
@@ -87,9 +90,9 @@ const Footer = () => {
         </div>
         <p className="white">© CO-WORKING Bangkok 2023</p>
         <div className="paymentIcons footerIcons">
-        <i className="fa-brands fa-cc-mastercard"></i>
-        <i className="fa-brands fa-cc-visa"></i>
-        <i className="fa-brands fa-cc-paypal"></i>
+          <i className="fa-brands fa-cc-mastercard"></i>
+          <i className="fa-brands fa-cc-visa"></i>
+          <i className="fa-brands fa-cc-paypal"></i>
         </div>
       </div>
     </div>

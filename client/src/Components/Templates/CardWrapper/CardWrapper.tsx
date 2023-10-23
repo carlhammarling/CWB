@@ -1,8 +1,9 @@
 import './CardWrapper.scss'
 import CoworkCard from '../../Organisms/CoworkCard/CoworkCard'
-import { useDataContext } from "../../../Context/DataContext"; 
 
-
+interface CardWrapperProps {
+  coworkingSpaces: CoworkingSpace[]
+}
 
 const CardWrapper = (props: CardWrapperProps) => {
   
