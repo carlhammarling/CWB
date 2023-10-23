@@ -3,16 +3,16 @@ import "./CardContent.scss";
 import ActivityAtomRow from "../FacilityAtomRow/FacilityAtomRow";
 import CardPrice from "../CardPrice/CardPrice";
 
-const CardContent = (props: CoworkingSpace) => {
+const CardContent = (coworkingSpace: CoworkingSpace) => {
   return (
     <div className="cardContent">
-      <h2 className="radjhani">{props.name}</h2>
+      <h2 className="radjhani">{coworkingSpace.name}</h2>
       <div className="cardLocation">
-        <p className="radjhani">{props.adress.slice(0, 25)}</p>
+        <p className="radjhani">{coworkingSpace.adress.slice(0, 25)}</p>
       </div>
       <div className="cardBottom">
-        <ActivityAtomRow facilities={props.facilities} />
-        <CardPrice price={props.price} />
+        <ActivityAtomRow facilities={coworkingSpace.facilities} />
+        <CardPrice {...coworkingSpace.price} />
       </div>
     </div>
   );

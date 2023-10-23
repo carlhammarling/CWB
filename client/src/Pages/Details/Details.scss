@@ -1,0 +1,12 @@
+@import "../../Styles/variables";
+
+.detailsWrapper {
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: $space-y-1;
+    margin-inline: $space-x-1;
+    padding-block: $space-y-1;
+  }
+}

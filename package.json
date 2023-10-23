@@ -7,6 +7,7 @@
     "client": "cd client && npm start"
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.43.3",
     "concurrently": "^8.2.1"
   }
 }

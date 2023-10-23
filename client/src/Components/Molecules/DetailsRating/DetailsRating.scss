@@ -1,0 +1,20 @@
+@import "../../../Styles/variables";
+
+
+.detailsRating {
+    
+    p {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        height: 1rem;
+
+        i.yellow {
+        color: $yellow;
+        }
+    
+        i.lightGray {
+        color: $lineGray;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CardPrice.scss";
 
-const CardPrice = (props: CardPriceProps) => {
+const CardPrice = (price: Price) => {
 
   //Function that makes it possible to click the price and switch between the values.
   const [toggler, setToggler] = useState(0);
@@ -17,12 +17,12 @@ const CardPrice = (props: CardPriceProps) => {
   return (
     <div className="cardPrice" onClick={togglePrice}>
       {toggler === 0 && (
-        <p className="xs bold">{props.price.week} THB / week</p>
+        <p className="xs bold">{price.week} THB / week</p>
       )}
       {toggler === 1 && (
-        <p className="xs bold">{props.price.month} THB / month</p>
+        <p className="xs bold">{price.month} THB / month</p>
       )}
-      {toggler === 2 && <p className="xs bold">{props.price.day} THB / day</p>}
+      {toggler === 2 && <p className="xs bold">{price.day} THB / day</p>}
     </div>
   );
 };

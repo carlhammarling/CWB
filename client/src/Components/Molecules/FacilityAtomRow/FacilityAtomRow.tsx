@@ -3,7 +3,6 @@ import './FacilityAtomRow.scss'
 
 const FacilityAtomRow = (props: FacilityAtomProps ) => {
 
-  console.log(props.facilities)
   return (
     <ul className='facilityAtomRow'>
       {props.facilities?.includes("food") && <li><i className="fa-solid fa-utensils"></i></li> }

@@ -9,4 +9,13 @@
   height: 508px;
   border-radius: 0px 36px 0px 36px;
   padding: 12px;
+
+  @media (min-width: $breakpoint) {
+    flex-basis: 384px;
+    height: 536px;
+  }
+  @media (min-width: $breakpoint2) {
+    flex-basis: 464px;
+    height: 656px;
+  }
 }

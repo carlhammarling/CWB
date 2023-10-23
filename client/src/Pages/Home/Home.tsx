@@ -13,7 +13,6 @@ const Home = () => {
   const coworkingSpaces2 = coworkingSpaces?.slice(3, 6);
   const coworkingSpaces3 = coworkingSpaces?.slice(6, 9);
 
-  console.log(coworkingSpaces1)
 
   return (
     <div className="home">

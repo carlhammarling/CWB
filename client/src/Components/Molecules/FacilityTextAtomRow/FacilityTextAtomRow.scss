@@ -1,0 +1,29 @@
+@import "../../../Styles/variables";
+
+.facilityTextAtomRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem ;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background-color: $white;
+    padding: 0.25rem 0.5rem;
+   
+    border: 1px solid $gray;
+    border-radius: 0px 5px 0px 5px;
+
+
+    i {
+      font-size: 0.7rem;
+      transform: translateY(-1px); /* Moves the element 10 pixels down */
+      color: $darkGray;
+
+      @media (min-width: $breakpoint) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

@@ -7,13 +7,10 @@ interface DataProviderProps {
     children: ReactNode;
 }
 
-interface CardRatingsProps {
+interface ReviewProps {
     reviews: Review[];
 }
 
-interface CardPriceProps {
- price: Price;
-}
 
 interface FacilityAtomProps {
  facilities?: Facility[];
@@ -22,5 +19,7 @@ interface FacilityAtomProps {
 interface CardWrapperProps {
     coworkingSpaces: CoworkingSpace[]
 }
+
+
     
 

@@ -1,0 +1,16 @@
+@import "../../../Styles/variables";
+
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $lineGray;
+    padding-top: $space-y-1;
+    gap: 1.75rem;
+
+    .header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+}

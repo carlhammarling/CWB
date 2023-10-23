@@ -2,7 +2,7 @@ import React from 'react'
 import './CardRatings.scss'
 import { sumAverageRating  } from '../../../Utils/SumAverageRating';
 
-const CardRatings = (props: CardRatingsProps) => {
+const CardRatings = (props: ReviewProps) => {
   
   const averageRating = sumAverageRating(props.reviews)
 

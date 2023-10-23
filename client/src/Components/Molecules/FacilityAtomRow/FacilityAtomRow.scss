@@ -1,39 +1,33 @@
 @import "../../../Styles/variables";
 
-
 .facilityAtomRow {
-    display: flex;
-    gap: .5rem;
+  display: flex;
+  gap: 0.5rem;
+
+  @media (min-width: $breakpoint) {
+    gap: 0.5rem;
+  }
+
+  li {
+    display: grid;
+    place-items: center;
+    background-color: $white;
+    height: 25px;
+    width: 25px;
+    border-radius: 0px 5px 0px 5px;
 
     @media (min-width: $breakpoint) {
-        gap: 0.75rem;
-
+      height: 30px;
+      width: 30px;
     }
 
-    
-    li {
-        display: grid;
-        place-items: center;
-        background-color: $white;
-        height: 25px;
-        width: 25px;
-        border-radius: 0px 5px 0px 5px;
+    i {
+      font-size: 1rem;
+      color: $darkGray;
 
-        @media (min-width: $breakpoint) {
-            height: 30px;
-        width: 34px;
-        }
-
-        i {
-            font-size: 1rem;
-            color: $darkGray;
-
-            
-            @media (min-width: $breakpoint) {
-                font-size: 1.25rem;
-
-            }
-
-        }
+      @media (min-width: $breakpoint) {
+        font-size: 1.25rem;
+      }
     }
+  }
 }

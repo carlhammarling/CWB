@@ -1,0 +1,22 @@
+@import "../../../Styles/variables";
+
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $lineGray;
+    padding-block: $space-y-1;
+    gap: 1.75rem;
+
+    .header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .oneReview {
+        display: flex;
+        flex-direction: column;    
+        gap: 1.75rem;
+    }
+}

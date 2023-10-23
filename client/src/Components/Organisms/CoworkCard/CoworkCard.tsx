@@ -2,10 +2,12 @@ import React from "react";
 import "./CoworkCard.scss";
 import CardRatings from "../../Molecules/CardRatings/CardRatings";
 import CardContent from "../../Molecules/CardContent/CardContent";
+import { Link } from "react-router-dom";
 
 const CoworkCard = (props: CoworkingSpace) => {
   return (
-    <div
+    
+    <Link to={"/cowork/" + props._id}
       className="coworkCard"
       style={{ backgroundImage: `url(${props.images[0]})` }}
     >
@@ -13,7 +15,7 @@ const CoworkCard = (props: CoworkingSpace) => {
       <CardContent
         {...props}
       />
-    </div>
+    </Link>
   );
 };
 

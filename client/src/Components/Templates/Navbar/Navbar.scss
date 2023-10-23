@@ -1,0 +1,24 @@
+@import "../../../Styles/variables";
+
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    padding: 1rem;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navIcon {
+        display: grid;
+        place-content: center;
+        width: 48px;
+        height: 48px;
+        background-color: $lightestGray;
+        border-radius: 50%;            
+        color: $darkGray;
+    }
+}
