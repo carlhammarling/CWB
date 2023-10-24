@@ -1,6 +1,6 @@
 import React from "react";
 import "./Reviews.scss";
-import DetailsRating from "../DetailsRating/DetailsRating";
+import DetailsRating from "../../Atoms/DetailsRating/DetailsRating";
 
 const Reviews = (props: ReviewProps) => {
   return (

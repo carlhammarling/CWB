@@ -10,6 +10,11 @@ interface Price {
     week: number;
 }
 
+interface Coordinates {
+    lat: number;
+    lng: number;
+}
+
 type Facility = "coffee" | "gym" | "food" | "safetybox" | "activities";
 
 interface CoworkingSpace {
@@ -20,6 +25,7 @@ interface CoworkingSpace {
     email: string;
     images: string[];
     facilities: Facility[];
+    coordinates: Coordinates;
     price: Price;
     reviews?: Review[];
     __v: number;

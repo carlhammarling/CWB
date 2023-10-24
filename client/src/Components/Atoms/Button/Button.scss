@@ -14,7 +14,8 @@
       margin-inline: $space-x-1;
       border: 0px;
       box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.18);
-      border-radius: 0px 25px;
+      border-radius: 0 1.25rem;
+
       cursor: pointer;
       h2 {
         color: $white;

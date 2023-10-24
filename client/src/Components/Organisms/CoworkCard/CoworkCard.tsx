@@ -1,6 +1,6 @@
 import React from "react";
 import "./CoworkCard.scss";
-import CardRatings from "../../Molecules/CardRatings/CardRatings";
+import CardRatings from "../../Atoms/CardRatings/CardRatings";
 import CardContent from "../../Molecules/CardContent/CardContent";
 import { Link } from "react-router-dom";
 

@@ -14,6 +14,10 @@ const coworkSchema = mongoose.Schema({
         rating: { type: Number, required: false },
         message: { type: String, required: false }
     }],
+    coordinates: {
+        lat: { type: Number, required: true },
+        lng: { type: Number, required: true },
+    },
     images: { type: [String], required: true },
     facilities: { type: [String], required: false }
 })

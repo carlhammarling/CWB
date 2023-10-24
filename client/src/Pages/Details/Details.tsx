@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Details.scss";
 import { useDataContext } from "../../Context/DataContext";
 import { useParams } from "react-router-dom";
@@ -6,9 +6,11 @@ import DetailsImageContainer from "../../Components/Organisms/DetailsImageContai
 import DetailsContent from "../../Components/Organisms/DetailsContent/DetailsContent";
 import Pricing from "../../Components/Molecules/Pricing/Pricing";
 import Reviews from "../../Components/Molecules/Reviews/Reviews";
-import Button from "../../Components/Molecules/Button/Button";
+import Button from "../../Components/Atoms/Button/Button";
+import Map from "../../Components/Molecules/Map/Map";
 
 const Details = () => {
+
   const { coworkingSpaces } = useDataContext();
   const { id } = useParams();
 
@@ -27,10 +29,11 @@ const Details = () => {
             ) : (
               <></>
             )}
+            <Map coordinates={thisCoworkingSpace.coordinates}/>
           </>
         )}
       </div>
-        <Button text="Book now!"/>
+      <Button text="Book now!" />
     </div>
   );
 };
