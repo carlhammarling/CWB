@@ -3,11 +3,9 @@ import "./Button.scss";
 
 const Button = (props: {text: string}) => {
   return (
-    <div className="buttonWrapper">
-      <button>
+      <button className="book">
         <h2>{props.text}</h2>
       </button>
-    </div>
   );
 };
 

@@ -8,6 +8,11 @@
     padding-top: $space-y-1;
     gap: 1.75rem;
 
+    @media (min-width: $breakpoint) {
+        border-top: 0px;
+        padding-top: 0;
+      }
+
     .header {
         display: flex;
         gap: 1rem;

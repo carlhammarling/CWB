@@ -1,24 +1,39 @@
 @import "../../../Styles/variables";
 
-
 .navbar {
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  padding: 1rem;
 
-    ul {
-        display: flex;
-        justify-content: space-between;
-    }
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .navIcon {
-        display: grid;
-        place-content: center;
-        width: 48px;
-        height: 48px;
-        background-color: $lightestGray;
-        border-radius: 50%;            
-        color: $darkGray;
+  .navIcon {
+    display: grid;
+    place-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: $lightestGray;
+    border-radius: 50%;
+    color: $darkGray;
+
+    @media (min-width: $breakpoint) {
+      width: 64px;
+      height: 64px;
+      i {
+        font-size: 24px;
+      }
     }
+    @media (min-width: $breakpoint2) {
+      width: 80px;
+      height: 80px;
+
+      i {
+        font-size: 30px;
+      }
+    }
+  }
 }

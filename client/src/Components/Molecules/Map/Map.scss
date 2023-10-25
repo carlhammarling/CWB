@@ -1,5 +1,12 @@
+@import "../../../Styles/variables";
+
 .map {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 0 1.25rem;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 0 1.25rem;
+
+  @media (min-width: $breakpoint) {
+    aspect-ratio: 2/1;
+    border-radius: 0 3rem;
+  }
 }

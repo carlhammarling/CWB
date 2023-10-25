@@ -40,7 +40,8 @@
     }
   }
 
-  h2, .h2 {
+  h2,
+  .h2 {
     color: $lightGray;
     font-size: 1.5rem;
     font-style: normal;
@@ -89,7 +90,8 @@
     }
   }
 
-  p, li {
+  p,
+  li {
     color: $gray;
     font-size: 1.25rem;
     font-style: normal;
@@ -145,9 +147,9 @@
 
     &.white {
       color: $white;
-
     }
     @media (min-width: $breakpoint) {
+      font-size: 1rem;
 
       &.bold {
         font-size: 1rem;
@@ -199,18 +201,15 @@
 
   i {
     font-size: 1.75rem;
-transition: ease-in-out .2s;
-    &:hover {
-      scale: 1.05;
-  }
+    // transition: ease-in-out .2s;
+    //     &:hover {
+    //       scale: 1.05;
+    //   }
     @media (min-width: $breakpoint) {
       font-size: 2.5rem;
-
     }
     @media (min-width: $breakpoint2) {
       font-size: 3rem;
-
     }
-
   }
 }

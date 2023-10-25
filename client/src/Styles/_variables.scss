@@ -20,12 +20,16 @@ $coffee: #F5EEE8;
 $whiteFade: linear-gradient(180deg, #ffffffee 50%, rgba(255, 255, 255, 0.27) 100%);
 
 
-//Margins
+//Margins - px or rem?
 
-$space-x-1: 1rem; 
-$space-y-1: 2rem;
-$space-y-1-desktop: 3rem;
-$space-y-2: 5rem;
-$space-y-3: 1rem;
+$space-x-1: 16px; 
+$space-y-1: 32px;
+$space-y-1-desktop: 64px;
+$margin-y-1-desktop: 104px;
+$margin-y-2-desktop: 120px;
+$margin-big-y-2-desktop: 160px;
+$space-y-2: 80px;
+$space-y-3: 16px;
 $breakpoint: 1000px;
 $breakpoint2: 1690px;
+$gap-desktop: 48px;

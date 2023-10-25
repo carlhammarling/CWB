@@ -7,6 +7,37 @@
     flex-direction: column;
     gap: $space-y-1;
     margin-inline: $space-x-1;
-    padding-block: $space-y-1;
+    padding-top: $space-y-1;
+
+    .buttonWrapper {
+      position:sticky;
+      width: 100%;
+      display: flex;
+      bottom: 0;
+    }
+
+    @media (min-width: $breakpoint) {
+      margin-inline: $margin-y-1-desktop;
+      gap: 64px;
+      margin-bottom: $margin-y-2-desktop;
+  
+    }
+    @media (min-width: $breakpoint2) {
+      margin-inline: $margin-y-2-desktop;
+    }
+  }
+
+  .detailsDesktopContent {
+    display: grid;
+    margin-inline: 40px;
+    grid-template-columns: 2fr 1fr;
+    gap: $gap-desktop;
+
+    .detailsDesktopLeft, .detailsDesktopRight {
+      display: flex;
+      flex-direction: column;
+      gap: $gap-desktop;
+    }
+
   }
 }
