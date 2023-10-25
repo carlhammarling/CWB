@@ -17,7 +17,7 @@
 
     i {
       font-size: 0.7rem;
-      transform: translateY(-1px); /* Moves the element 10 pixels down */
+      transform: translateY(-1px); 
       color: $darkGray;
 
       @media (min-width: $breakpoint) {

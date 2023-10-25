@@ -8,7 +8,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 //Routes
-app.use('/api/cowork', require('./controllers/coworkController'))
+app.use('/api/cowork', require('./controllers/coworkController'));
+app.use('/api/user', require('./controllers/userController'));
 
 
 module.exports = app;
