@@ -5,6 +5,12 @@ const auth = require('../auth/auth');
 
 exports.getUser = (req, res) => {
 
+  // User.find()
+  // try {
+
+  // } catch {
+
+  // }
     
 };
 
@@ -37,14 +43,36 @@ exports.registerUser = async (req, res) => {
 
 
     //Making sure the user is stored before generating the token.
-    const user = await userHashedPassword.save();
-    res.status(201).json(auth.generateToken(user));
+    const savedUser = await userHashedPassword.save();
+    res.status(201).json(auth.generateToken(savedUser));
 
   } catch {
     res.status(400).json({ message: "Something went wrong when trying to create the user."});
   }
 };
 
-exports.loginUser = (req, res) => {
- 
+exports.loginUser = async (req, res) => {
+
+ const { userName, password } = req.body;
+if(!userName || !password) {
+  return res.status(400).json({ message: "Please fill in all the forms."});
+}
+
+try {
+ const matchingUser = await User.findOne({ userName })
+ if(!matchingUser) {
+  return res.status(401).json({ message: "Wrong username or password." });
+ }
+const matchingPasswords = await bcrypt.compare(password, matchingUser.passwordCrypted)
+if(!matchingPasswords) {
+  return res.status(401).json({ message: "Wrong username or password." })
+}
+
+res.status(200).json(auth.generateToken(matchingUser))
+
+}
+catch {
+  res.status(400).json({ message: "Something went wrong when trying to login."})
+}
+
 };
