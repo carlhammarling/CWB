@@ -5,28 +5,21 @@ import CoffeeDivider from "../../Components/Organisms/CoffeeDivider/CoffeeDivide
 import TuktukDivider from "../../Components/Organisms/TuktukDivider/TuktukDivider";
 import CardWrapper from "../../Components/Templates/CardWrapper/CardWrapper";
 import { useDataContext } from "../../Context/DataContext";
+import { ClipLoader } from "react-spinners";
+import { arraySlicer } from "../../Utils/ArraySlicer";
 
 const Home = () => {
   const { coworkingSpaces } = useDataContext();
-
-  const divideCards = (array: CoworkingSpace[], cardsPerRow: number) => {
-    const chunks: CoworkingSpace[][] = [];
-    for (let i = 0; i < array.length; i += cardsPerRow) {
-      chunks.push(array.slice(i, i + cardsPerRow));
-    }
-    return chunks;
-  };
 
   if (!coworkingSpaces)
     return (
       <div className="home">
         <Hero />
-        {/* Put in spinner */}
-        <div>Loading...</div>
+        <div className="loader"><ClipLoader /></div>
       </div>
     );
 
-  const dividedCoworkingSpaces: CoworkingSpace[][] = divideCards(
+  const dividedCoworkingSpaces: CoworkingSpace[][] = arraySlicer(
     coworkingSpaces,
     3
   );

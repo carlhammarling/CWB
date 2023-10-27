@@ -20,3 +20,9 @@ body {
   @include fonts;
 }
 
+.loader {
+  display: grid;
+  place-content: center;
+  min-width: 100px;
+}
+
