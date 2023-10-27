@@ -50,7 +50,10 @@ export const DataProvider = ({ children }: DataProviderProps) => {
       localStorage.setItem('token', token);
       getUserData()
     }
+    setUserData(null)
   }, [token]);
+
+  
 
 
   useEffect(() => {

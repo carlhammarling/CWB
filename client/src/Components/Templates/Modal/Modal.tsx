@@ -1,10 +1,10 @@
 import React from "react";
 import "./Modal.scss";
 import { useDataContext } from "../../../Context/DataContext";
-import Login from "../../Organisms/LoginRegister/LoginRegister";
+import LoginRegister from "../../Organisms/LoginRegister/LoginRegister";
 
-const Menu = () => {
-  const { setShowModal } = useDataContext();
+const Modal = () => {
+  const { setShowModal, userData } = useDataContext();
   return (
     <div className="modalWrapper">
       <div className="modal">
@@ -17,11 +17,11 @@ const Menu = () => {
           </button>
         </div>
         <div className="modalContent">
-          <Login />
+          {userData ? <h1>Här ska vi boka!</h1> : <LoginRegister />}
         </div>
       </div>
     </div>
   );
 };
 
-export default Menu;
+export default Modal;

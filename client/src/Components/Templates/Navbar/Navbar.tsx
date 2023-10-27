@@ -5,7 +5,14 @@ import { useDataContext } from "../../../Context/DataContext";
 
 const Navbar = () => {
 
-  const { setShowModal } = useDataContext()
+  const { setShowModal, setToken } = useDataContext()
+
+
+const logOut = () => {
+  setToken(null)
+  
+  localStorage.removeItem('token')
+};
 
   return (
     <div className="navbar" onClick={() => setShowModal(false)}>
@@ -16,7 +23,7 @@ const Navbar = () => {
               <i className="fa-solid fa-house fa-sm"></i>
             </NavLink>
           </li>
-          <li className="navIcon">
+          <li className="navIcon" onClick={logOut}>
           <i className="fa-solid fa-bars fa-sm"></i>
           </li>
         </ul>
