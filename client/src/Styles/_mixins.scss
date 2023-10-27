@@ -8,6 +8,7 @@
   box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.18);
   border-radius: 0 1.25rem;
   margin-bottom: $space-y-1;
+  color: white;
 
   cursor: pointer;
 
@@ -45,6 +46,14 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: $space-y-1;
+    gap: 1rem;
+
+    input {
+      font-size: 1rem;
+      padding: 0.75rem;
+      background-color: $white;
+      border: 1px solid $darkGray;
+      border-radius: 0 1rem;
+    }
   }
 }

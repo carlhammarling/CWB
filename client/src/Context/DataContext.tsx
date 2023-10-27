@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
-const BASE_URL: string = "http://localhost:9999";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 //DataContext is what we will be able to import thrue the contexts in other components.
 const DataContext = createContext<DataContextProps | undefined>(undefined);
@@ -26,8 +26,50 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
+  const [token, setToken] = useState<string | null>(null);
+  const [userData, setUserData] = useState<User | null>(null);
+
+  const getUserData = async () => {
+    if(!token) {
+      return
+    }
+    try {
+      const res = await axios.get(BASE_URL + "/api/user/bytoken", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUserData(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof token == "string") {
+      localStorage.setItem('token', token);
+      getUserData()
+    }
+  }, [token]);
+
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem('token');
+    setToken(savedToken)
+  }, [])
+
   return (
-    <DataContext.Provider value={{ coworkingSpaces, setCoworkingSpaces, showModal, setShowModal }}>
+    <DataContext.Provider
+      value={{
+        coworkingSpaces,
+        setCoworkingSpaces,
+        showModal,
+        setShowModal,
+        token,
+        setToken,
+        userData
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

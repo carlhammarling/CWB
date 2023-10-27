@@ -1,4 +1,4 @@
-@use '../Styles/mixins';
+@use "../Styles/mixins";
 @import "./variables";
 
 @mixin fonts {
@@ -92,7 +92,9 @@
   }
 
   p,
-  li {
+  .p,
+  li,
+  label {
     color: $gray;
     font-size: 1.25rem;
     font-style: normal;
@@ -219,5 +221,12 @@
   }
   .invisibleButton {
     @include mixins.invisibleButton;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .underline {
+    text-decoration: underline;
   }
 }

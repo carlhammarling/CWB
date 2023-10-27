@@ -5,12 +5,24 @@ const auth = require("../auth/auth");
 
 
 //GET ALL
-exports.getUser = async (req, res) => {
+exports.getAllUsers = async (req, res) => {
   try {
     const data = await User.find();
     res.status(200).json(data);
   } catch {
     res.status(400).json({ message: "Could not get the users." });
+  }
+};
+
+//GET ONE USER
+exports.getOneUser = async (req, res) => {
+  const userId = req.userId;
+
+  try {
+    const data = await User.findById(userId);
+    res.status(200).json(data);
+  } catch {
+    res.status(400).json({ message: "Could not find any user with that id." });
   }
 };
 

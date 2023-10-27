@@ -45,10 +45,10 @@ const Details = () => {
               <Map coordinates={thisCoworkingSpace.coordinates} />
               <div className="buttonWrapper">
                 <button
-                  className="greenButton"
+                  className="greenButton h2"
                   onClick={() => setShowModal((state) => !state)}
                 >
-                  <h2>Book Now!</h2>
+                  Book Now!
                 </button>
               </div>
             </div>
@@ -63,10 +63,10 @@ const Details = () => {
                 <div className="detailsDesktopRight">
                   <Pricing {...thisCoworkingSpace.price} />
                   <button
-                    className="greenButton"
+                    className="greenButton h2"
                     onClick={() => setShowModal((state) => !state)}
                   >
-                    <h2>Book Now!</h2>
+                    Book Now!
                   </button>
 
                   {thisCoworkingSpace.reviews ? (

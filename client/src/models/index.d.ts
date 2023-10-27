@@ -30,3 +30,18 @@ interface CoworkingSpace {
     reviews?: Review[];
     __v: number;
 }
+
+
+interface LoginFormData {
+    userName: string;
+    password: string
+}
+
+interface RegisterFormData extends LoginFormData {
+    repeatPassword: string;
+}
+
+interface User {
+    userName: string;
+    bookings?: any[];
+}

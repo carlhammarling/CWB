@@ -1,7 +1,7 @@
 import React from "react";
 import "./Modal.scss";
 import { useDataContext } from "../../../Context/DataContext";
-import Login from "../../Organisms/Login/Login";
+import Login from "../../Organisms/LoginRegister/LoginRegister";
 
 const Menu = () => {
   const { setShowModal } = useDataContext();

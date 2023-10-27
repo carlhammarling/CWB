@@ -1,6 +1,6 @@
 @use "../../../Styles/mixins";
 @import "../../../Styles/variables";
 
-.login {
+.loginRegister {
     @include mixins.loginForm;
 }
