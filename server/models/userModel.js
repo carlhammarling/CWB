@@ -53,7 +53,7 @@ exports.registerUser = async (req, res) => {
 
 exports.loginUser = async (req, res) => {
 
- const { userName, password } = req.body;
+const { userName, password } = req.body;
 if(!userName || !password) {
   return res.status(400).json({ message: "Please fill in all the forms."});
 }

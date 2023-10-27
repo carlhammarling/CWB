@@ -10,4 +10,14 @@
     gap: $space-y-2;
     margin-bottom: $space-y-2;
   }
+
+  .dividedSection {
+    display: flex;
+    flex-direction: column;
+    gap: $space-y-1;
+
+    @media (min-width: $breakpoint) {
+      gap: $space-y-2;
+    }
+  }
 }
