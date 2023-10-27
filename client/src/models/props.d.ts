@@ -1,6 +1,8 @@
 interface DataContextProps {
     coworkingSpaces: CoworkingSpace[] | undefined;
     setCoworkingSpaces: React.Dispatch<React.SetStateAction<CoworkingSpace[] | undefined>>;
+    showModal: boolean;
+    setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface DataProviderProps {

@@ -1,10 +1,14 @@
 import React from "react";
 import "./Navbar.scss";
 import { NavLink } from "react-router-dom";
+import { useDataContext } from "../../../Context/DataContext";
 
 const Navbar = () => {
+
+  const { setShowModal } = useDataContext()
+
   return (
-    <div className="navbar">
+    <div className="navbar" onClick={() => setShowModal(false)}>
       <nav>
         <ul>
           <li>

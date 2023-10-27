@@ -6,11 +6,10 @@ import DetailsImageContainer from "../../Components/Organisms/DetailsImageContai
 import DetailsContent from "../../Components/Organisms/DetailsContent/DetailsContent";
 import Pricing from "../../Components/Molecules/Pricing/Pricing";
 import Reviews from "../../Components/Molecules/Reviews/Reviews";
-import Button from "../../Components/Atoms/Button/Button";
 import Map from "../../Components/Molecules/Map/Map";
 
 const Details = () => {
-  const { coworkingSpaces } = useDataContext();
+  const { coworkingSpaces, setShowModal } = useDataContext();
   const { id } = useParams();
 
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
@@ -45,7 +44,12 @@ const Details = () => {
               )}
               <Map coordinates={thisCoworkingSpace.coordinates} />
               <div className="buttonWrapper">
-                <Button text="Book now!" />
+                <button
+                  className="greenButton"
+                  onClick={() => setShowModal((state) => !state)}
+                >
+                  <h2>Book Now!</h2>
+                </button>
               </div>
             </div>
           ) : (
@@ -58,7 +62,12 @@ const Details = () => {
                 </div>
                 <div className="detailsDesktopRight">
                   <Pricing {...thisCoworkingSpace.price} />
-                  <Button text="Book now!" />
+                  <button
+                    className="greenButton"
+                    onClick={() => setShowModal((state) => !state)}
+                  >
+                    <h2>Book Now!</h2>
+                  </button>
 
                   {thisCoworkingSpace.reviews ? (
                     <Reviews reviews={thisCoworkingSpace.reviews} />

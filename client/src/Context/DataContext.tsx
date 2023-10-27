@@ -24,8 +24,10 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     getCoworkingSpaces();
   }, []);
 
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
-    <DataContext.Provider value={{ coworkingSpaces, setCoworkingSpaces }}>
+    <DataContext.Provider value={{ coworkingSpaces, setCoworkingSpaces, showModal, setShowModal }}>
       {children}
     </DataContext.Provider>
   );
