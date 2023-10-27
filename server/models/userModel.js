@@ -1,19 +1,21 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require("bcrypt");
 const User = require("../schemas/userSchema");
 const jwt = require("jsonwebtoken");
-const auth = require('../auth/auth');
+const auth = require("../auth/auth");
 
-exports.getUser = (req, res) => {
 
-  // User.find()
-  // try {
-
-  // } catch {
-
-  // }
-    
+//GET ALL
+exports.getUser = async (req, res) => {
+  try {
+    const data = await User.find();
+    res.status(200).json(data);
+  } catch {
+    res.status(400).json({ message: "Could not get the users." });
+  }
 };
 
+
+//REGISTER
 exports.registerUser = async (req, res) => {
   const { userName, password, passwordRepeat } = req.body;
 
@@ -37,42 +39,47 @@ exports.registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const userHashedPassword = new User({
-        userName,
-        passwordCrypted: hashedPassword,
+      userName,
+      passwordCrypted: hashedPassword,
     });
-
 
     //Making sure the user is stored before generating the token.
     const savedUser = await userHashedPassword.save();
     res.status(201).json(auth.generateToken(savedUser));
-
   } catch {
-    res.status(400).json({ message: "Something went wrong when trying to create the user."});
+    res
+      .status(400)
+      .json({
+        message: "Something went wrong when trying to create the user.",
+      });
   }
 };
 
+
+//LOGIN
 exports.loginUser = async (req, res) => {
+  const { userName, password } = req.body;
+  if (!userName || !password) {
+    return res.status(400).json({ message: "Please fill in all the forms." });
+  }
 
-const { userName, password } = req.body;
-if(!userName || !password) {
-  return res.status(400).json({ message: "Please fill in all the forms."});
-}
+  try {
+    const matchingUser = await User.findOne({ userName });
+    if (!matchingUser) {
+      return res.status(401).json({ message: "Wrong username or password." });
+    }
+    const matchingPasswords = await bcrypt.compare(
+      password,
+      matchingUser.passwordCrypted
+    );
+    if (!matchingPasswords) {
+      return res.status(401).json({ message: "Wrong username or password." });
+    }
 
-try {
- const matchingUser = await User.findOne({ userName })
- if(!matchingUser) {
-  return res.status(401).json({ message: "Wrong username or password." });
- }
-const matchingPasswords = await bcrypt.compare(password, matchingUser.passwordCrypted)
-if(!matchingPasswords) {
-  return res.status(401).json({ message: "Wrong username or password." })
-}
-
-res.status(200).json(auth.generateToken(matchingUser))
-
-}
-catch {
-  res.status(400).json({ message: "Something went wrong when trying to login."})
-}
-
+    res.status(200).json(auth.generateToken(matchingUser));
+  } catch {
+    res
+      .status(400)
+      .json({ message: "Something went wrong when trying to login." });
+  }
 };

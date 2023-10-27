@@ -10,12 +10,12 @@ const DetailsRating = (props: { rating: number }) => {
 
     for (let i = 0; i < props.rating; i++)
       filledStars.push(
-        <i key={i} className="fa-solid fa-star fa-sm yellow"></i>
+        <i key={`filled-${i}`} className="fa-solid fa-star fa-sm yellow"></i>
       );
 
     for (let i = 0; i < 5 - props.rating; i++)
       hollowStars.push(
-        <i key={i} className="fa-solid fa-star fa-sm lightGray"></i>
+        <i key={`hollow-${i}`} className="fa-solid fa-star fa-sm lightGray"></i>
       );
 
     setStars([...filledStars, ...hollowStars]);
