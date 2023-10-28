@@ -25,7 +25,7 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
     setError(null);
 
     if (formData.userName.length < 1 || formData.password.length < 1) {
-      setError("You have to fill in all the forms!");
+      setError("You have to fill in all the input fields!");
       return;
     }
 
@@ -35,11 +35,9 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
       setToken(res.data);
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        if (err.response) {
-          setError(err.response.data.message);
+          setError(err.response?.data.message);
           console.log(err);
           return;
-        }
       }
       setError("Unknown error");
       console.log(err);
@@ -53,7 +51,7 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
         Email:
       </label>
       <input
-        type="text"
+        type="email"
         name="userName"
         id="userName"
         value={formData.userName}
@@ -71,7 +69,7 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
       ></input>
       <div className="text-center">
         <p>Don’t have an account yet? </p>
-        <p className="underline" onClick={togglePage}>
+        <p className="underline pointer" onClick={togglePage}>
           Register here
         </p>
         <p>{error}</p>

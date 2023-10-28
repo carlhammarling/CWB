@@ -38,7 +38,7 @@ interface LoginFormData {
 }
 
 interface RegisterFormData extends LoginFormData {
-    repeatPassword: string;
+    passwordRepeat: string;
 }
 
 interface User {
