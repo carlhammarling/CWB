@@ -5,7 +5,7 @@ import { useDataContext } from "../../../Context/DataContext";
 const LoginForm = ({ togglePage }: LoginFormProps) => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-  const { userData, setToken } = useDataContext();
+  const { setToken } = useDataContext();
 
   const [formData, setFormData] = useState<LoginFormData>({
     userName: "",
@@ -77,7 +77,6 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
         <button className="greenButton h2">
           Login
         </button>
-        {userData && <p>{userData.userName}</p>}
     </form>
   );
 };

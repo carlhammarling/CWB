@@ -1,0 +1,50 @@
+@import "../../../Styles/variables";
+
+.booking {
+  display: flex;
+  flex-direction: column;
+  gap: $space-y-3;
+
+  .bookingContent {
+    display: flex;
+    flex-direction: column;
+    gap: $space-y-3;
+  }
+  .coworkImg {
+    width: 100%;
+    aspect-ratio: 3/2;
+    border-radius: 0 1.25rem 0 1.25rem;
+    background-size: contain;
+  }
+
+  .totPrice {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $lineGray;
+    padding-bottom: $space-y-3;
+  }
+
+  .paymentMethod {
+    display: flex;
+
+    justify-content: space-between;
+
+    .paymentImg {
+      height: 70px;
+      padding: 0.5rem;
+          border: 2px solid $lightGray;
+          border-radius: 0.3rem;
+          opacity: 0.7;
+          transition: 0.2s;
+
+      &.active {
+        border: 2px solid $green;
+        opacity: 1;
+      }
+    }
+
+    .line {
+        border-right: 1px solid $lineGray;
+    }
+  }
+}

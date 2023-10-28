@@ -42,6 +42,7 @@ interface RegisterFormData extends LoginFormData {
 }
 
 interface User {
+    _id: string,
     userName: string;
     bookings?: any[];
 }

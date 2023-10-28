@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Modal.scss";
 import { useDataContext } from "../../../Context/DataContext";
 import LoginRegister from "../../Organisms/LoginRegister/LoginRegister";
+import Booking from "../../Organisms/Booking/Booking";
 
 const Modal = () => {
-  const { setShowModal, userData } = useDataContext();
+  const { setShowModal, userData, token } = useDataContext();
+
+  
   return (
-    <div className="modalWrapper">
-      <div className="modal">
+    <div className="modalWrapper" onClick={() => setShowModal((state) => !state)}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="modalHeader">
           <button
             className="invisibleButton"
@@ -17,7 +20,7 @@ const Modal = () => {
           </button>
         </div>
         <div className="modalContent">
-          {userData ? <h1>Här ska vi boka!</h1> : <LoginRegister />}
+          {token ? <Booking /> : <LoginRegister />}        
         </div>
       </div>
     </div>

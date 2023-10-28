@@ -47,7 +47,7 @@
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 139.5%; /* 33.48px */
+    line-height: 139.5%;
     @media (min-width: $breakpoint) {
       font-size: 2rem;
       line-height: normal;
@@ -55,6 +55,10 @@
     @media (min-width: $breakpoint2) {
       font-size: 2.25rem;
       line-height: normal;
+    }
+
+    &.darkGray {
+      color: $darkGray;
     }
   }
 
@@ -204,10 +208,6 @@
 
   i {
     font-size: 1.75rem;
-    // transition: ease-in-out .2s;
-    //     &:hover {
-    //       scale: 1.05;
-    //   }
     @media (min-width: $breakpoint) {
       font-size: 2.5rem;
     }

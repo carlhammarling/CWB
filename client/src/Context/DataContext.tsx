@@ -27,7 +27,11 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const [token, setToken] = useState<string | null>(null);
-  const [userData, setUserData] = useState<User | null>(null);
+  const [userData, setUserData] = useState<User>({
+    _id: "",
+    userName: "",
+    bookings: []
+  });
 
   const getUserData = async () => {
     if(!token) {
@@ -39,7 +43,11 @@ export const DataProvider = ({ children }: DataProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setUserData(res.data);
+      setUserData({
+        _id: res.data._id,
+        userName: res.data.userName,
+        bookings: res.data.bookings
+      })
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +58,11 @@ export const DataProvider = ({ children }: DataProviderProps) => {
       localStorage.setItem('token', token);
       getUserData()
     }
-    setUserData(null)
+    setUserData({
+      _id: "",
+      userName: "",
+      bookings: []
+    })
   }, [token]);
 
   
