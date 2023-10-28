@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDataContext } from "../../../Context/DataContext";
 import { useParams } from "react-router-dom";
 import "./Booking.scss";
+import Calendar from "react-calendar";
 
 const Booking = () => {
   const { userData, coworkingSpaces } = useDataContext();
@@ -15,6 +16,11 @@ const Booking = () => {
     userId: string;
     paymentMethod: PaymentMethod;
   }
+
+  type ValuePiece = Date | null;
+  type Value = ValuePiece | [ValuePiece, ValuePiece];
+
+  const [value, onChange] = useState<Value>(new Date());
 
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
   const loggedInUser: User = userData;
@@ -57,20 +63,12 @@ const Booking = () => {
             <p>Total price</p>
             <p>{thisCoworkingSpace.price.month} THB</p>
           </div>
+          <Calendar onChange={onChange} value={value} />
           <h2 className="darkGray">
             Choose payment method{" "}
             <i className="fa-solid fa-credit-card fa-sm"></i>
           </h2>
           <div className="paymentMethod">
-            <img
-              className={`paymentImg ${
-                selectedPaymentMethod === "visa-mastercard" ? "active" : ""
-              }`}
-              onClick={() => setSelectedPaymentMethod("visa-mastercard")}
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ539ufQZ_n9NoIO9CHegZ1c_mSEV3xKGqnOmvwXhAeb6Xy-3Vk2zMOO8veNOJjftC9Qw&usqp=CAU"
-              alt=""
-            />
-            <div className="line"></div>
             <img
               className={`paymentImg ${
                 selectedPaymentMethod === "paypal" ? "active" : ""
@@ -79,8 +77,16 @@ const Booking = () => {
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrJdjso_lcyN_0SmKZH4T0LwvUKVms39KghA&usqp=CAU"
               alt=""
             />
+            <div className="line"></div>
+            <img
+              className={`paymentImg ${
+                selectedPaymentMethod === "visa-mastercard" ? "active" : ""
+              }`}
+              onClick={() => setSelectedPaymentMethod("visa-mastercard")}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ539ufQZ_n9NoIO9CHegZ1c_mSEV3xKGqnOmvwXhAeb6Xy-3Vk2zMOO8veNOJjftC9Qw&usqp=CAU"
+              alt=""
+            />
           </div>
-
           <button className="greenButton h2">Book now!</button>
         </div>
       )}
