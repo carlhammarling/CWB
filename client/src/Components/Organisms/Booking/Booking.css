@@ -1,0 +1,163 @@
+.booking {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.booking .bookingContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.booking .coworkImg {
+  width: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 0 1.25rem 0 1.25rem;
+  background-size: contain;
+}
+.booking .totPrice {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #D2D2D2;
+  padding-bottom: 16px;
+}
+.booking .paymentMethod {
+  display: flex;
+  justify-content: space-between;
+}
+.booking .paymentMethod .paymentImg {
+  height: 70px;
+  padding: 0.5rem;
+  border: 2px solid #848484;
+  border-radius: 0.3rem;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+.booking .paymentMethod .paymentImg.active {
+  border: 2px solid #28A745;
+  opacity: 1;
+}
+.booking .paymentMethod .line {
+  border-right: 1px solid #D2D2D2;
+}
+.booking .react-calendar {
+  max-width: 100%;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+.booking .react-calendar--doubleView {
+  width: 700px;
+}
+.booking .react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+.booking .react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+.booking .react-calendar,
+.booking .react-calendar *,
+.booking .react-calendar *:before,
+.booking .react-calendar *:after {
+  box-sizing: border-box;
+}
+.booking .react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.booking .react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+.booking .react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+.booking .react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+.booking .react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+.booking .react-calendar__navigation button:enabled:hover,
+.booking .react-calendar__navigation button:enabled:focus {
+  background-color: #e6e6e6;
+}
+.booking .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #616161;
+}
+.booking .react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+.booking .react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+.booking .react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+.booking .react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+.booking .react-calendar__year-view .react-calendar__tile,
+.booking .react-calendar__decade-view .react-calendar__tile,
+.booking .react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+.booking .react-calendar__tile {
+  max-width: 100%;
+  aspect-ratio: 1;
+  background: none;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 16px;
+  font: inherit;
+  font-size: 0.833em;
+}
+.booking .react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+.booking .react-calendar__tile:enabled:hover,
+.booking .react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+.booking .react-calendar__tile--now {
+  background: #ffff76;
+}
+.booking .react-calendar__tile--now:enabled:hover,
+.booking .react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+.booking .react-calendar__tile--hasActive {
+  background: #76baff;
+}
+.booking .react-calendar__tile--hasActive:enabled:hover,
+.booking .react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+.booking .react-calendar__tile--active {
+  background: #272727;
+  color: white;
+}
+.booking .react-calendar__tile--active:enabled:hover,
+.booking .react-calendar__tile--active:enabled:focus {
+  background: #272727;
+}
+.booking .react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+.booking abbr[title] {
+  text-decoration: none;
+}/*# sourceMappingURL=Booking.css.map */

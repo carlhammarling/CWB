@@ -1,0 +1,36 @@
+.detailsWrapper .details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-inline: 16px;
+  padding-top: 32px;
+}
+.detailsWrapper .details .buttonWrapper {
+  position: sticky;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+}
+@media (min-width: 1000px) {
+  .detailsWrapper .details {
+    margin-inline: 104px;
+    gap: 64px;
+    margin-bottom: 120px;
+  }
+}
+@media (min-width: 1690px) {
+  .detailsWrapper .details {
+    margin-inline: 120px;
+  }
+}
+.detailsWrapper .detailsDesktopContent {
+  display: grid;
+  margin-inline: 40px;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+}
+.detailsWrapper .detailsDesktopContent .detailsDesktopLeft, .detailsWrapper .detailsDesktopContent .detailsDesktopRight {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}/*# sourceMappingURL=Details.css.map */

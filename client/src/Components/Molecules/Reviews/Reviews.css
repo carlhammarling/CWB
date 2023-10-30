@@ -1,0 +1,23 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #D2D2D2;
+  padding-top: 32px;
+  gap: 1.75rem;
+}
+@media (min-width: 1000px) {
+  .reviews {
+    border-top: 0px;
+    padding-top: 0;
+  }
+}
+.reviews .header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.reviews .oneReview {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}/*# sourceMappingURL=Reviews.css.map */

@@ -1,0 +1,32 @@
+.facilityAtomRow {
+  display: flex;
+  gap: 0.5rem;
+}
+@media (min-width: 1000px) {
+  .facilityAtomRow {
+    gap: 0.5rem;
+  }
+}
+.facilityAtomRow li {
+  display: grid;
+  place-items: center;
+  background-color: white;
+  height: 25px;
+  width: 25px;
+  border-radius: 0px 5px 0px 5px;
+}
+@media (min-width: 1000px) {
+  .facilityAtomRow li {
+    height: 30px;
+    width: 30px;
+  }
+}
+.facilityAtomRow li i {
+  font-size: 1rem;
+  color: #3F3F3F;
+}
+@media (min-width: 1000px) {
+  .facilityAtomRow li i {
+    font-size: 1.25rem;
+  }
+}/*# sourceMappingURL=FacilityAtomRow.css.map */

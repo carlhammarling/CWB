@@ -1,0 +1,47 @@
+.detailsImageContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  gap: 0.25rem;
+  aspect-ratio: 1;
+  border-radius: 0 1.25rem 0 1.25rem;
+  overflow: hidden;
+}
+@media (min-width: 1000px) {
+  .detailsImageContainer {
+    flex-direction: row;
+    width: 100%;
+    aspect-ratio: 3/1;
+    border-radius: 0 5rem;
+    gap: 0.5rem;
+  }
+}
+.detailsImageContainer .bigImage {
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center;
+}
+.detailsImageContainer .smallImageContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+@media (min-width: 1000px) {
+  .detailsImageContainer .smallImageContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    aspect-ratio: 1;
+    gap: 0.5rem;
+  }
+}
+.detailsImageContainer .smallImageContainer .smallImage {
+  flex-grow: 1;
+  opacity: 0.8;
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+.detailsImageContainer .smallImageContainer .smallImage:hover {
+  opacity: 1;
+}/*# sourceMappingURL=DetailsImageContainer.css.map */

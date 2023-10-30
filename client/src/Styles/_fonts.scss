@@ -121,6 +121,9 @@
     &.lightGray {
       color: $lightGray;
     }
+    &.darkGray {
+      color: $darkGray;
+    }
 
     @media (min-width: $breakpoint2) {
       font-size: 1.5rem;

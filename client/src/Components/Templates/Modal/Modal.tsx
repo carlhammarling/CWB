@@ -20,7 +20,7 @@ const Modal = () => {
           </button>
         </div>
         <div className="modalContent">
-          {token ? <Booking /> : <LoginRegister />}        
+          {userData ? <Booking /> : <LoginRegister />}        
         </div>
       </div>
     </div>

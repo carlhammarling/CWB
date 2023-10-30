@@ -1,0 +1,12 @@
+.detailsRating p {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 1rem;
+}
+.detailsRating p i.yellow {
+  color: #FFC703;
+}
+.detailsRating p i.lightGray {
+  color: #D2D2D2;
+}/*# sourceMappingURL=DetailsRating.css.map */

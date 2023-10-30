@@ -1,0 +1,11 @@
+.detailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detailsContent p i {
+  transform: translateY(1px);
+}
+.detailsContent .description {
+  padding-top: 0.75rem;
+}/*# sourceMappingURL=DetailsContent.css.map */

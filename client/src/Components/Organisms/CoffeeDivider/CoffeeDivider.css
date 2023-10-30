@@ -1,0 +1,50 @@
+.coffeeDivider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 3rem;
+  background-color: #272727;
+}
+.coffeeDivider .coffeeCircle {
+  display: flex;
+  justify-content: center;
+  background-color: #F5EEE8;
+  border-radius: 50%;
+  padding: 0.75rem;
+}
+@media (min-width: 1000px) {
+  .coffeeDivider .coffeeCircle {
+    padding: 2rem;
+  }
+  .coffeeDivider .coffeeCircle img {
+    width: 90px;
+  }
+}
+@media (min-width: 1690px) {
+  .coffeeDivider .coffeeCircle {
+    padding: 3rem;
+  }
+  .coffeeDivider .coffeeCircle img {
+    width: 120px;
+  }
+}
+@media (min-width: 1000px) {
+  .coffeeDivider {
+    flex-direction: row;
+    padding: 3rem 10rem;
+    justify-content: space-between;
+  }
+  .coffeeDivider p {
+    width: 37rem;
+  }
+}
+@media (min-width: 1690px) {
+  .coffeeDivider {
+    padding: 3.5rem 11.25rem;
+  }
+  .coffeeDivider p {
+    width: 45rem;
+  }
+}/*# sourceMappingURL=CoffeeDivider.css.map */

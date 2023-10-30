@@ -8,15 +8,14 @@ const DataContext = createContext<DataContextProps | undefined>(undefined);
 
 //In the Provider we put all the functionality - We have to encapsule the components where this should be reachable.
 export const DataProvider = ({ children }: DataProviderProps) => {
-  const [coworkingSpaces, setCoworkingSpaces] = useState<
-    CoworkingSpace[] | undefined
-  >(undefined);
+  const [coworkingSpaces, setCoworkingSpaces] = useState<CoworkingSpace[]>();
 
   useEffect(() => {
     const getCoworkingSpaces = async () => {
       try {
         const res = await axios.get(BASE_URL + "/api/cowork");
-        setCoworkingSpaces(res.data);
+        const coworkingArray: CoworkingSpace[] = res.data;
+        setCoworkingSpaces(coworkingArray);
       } catch (err) {
         console.log(err);
       }
@@ -27,15 +26,11 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const [token, setToken] = useState<string | null>(null);
-  const [userData, setUserData] = useState<User>({
-    _id: "",
-    userName: "",
-    bookings: []
-  });
+  const [userData, setUserData] = useState<UserFetchProps | null>(null);
 
   const getUserData = async () => {
-    if(!token) {
-      return
+    if (!token) {
+      return;
     }
     try {
       const res = await axios.get(BASE_URL + "/api/user/bytoken", {
@@ -43,11 +38,10 @@ export const DataProvider = ({ children }: DataProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setUserData({
-        _id: res.data._id,
-        userName: res.data.userName,
-        bookings: res.data.bookings
-      })
+
+      const userData: UserFetchProps = res.data;
+      console.log(userData)
+      setUserData(userData);
     } catch (err) {
       console.log(err);
     }
@@ -55,23 +49,16 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 
   useEffect(() => {
     if (typeof token == "string") {
-      localStorage.setItem('token', token);
-      getUserData()
+      localStorage.setItem("token", token);
+      getUserData();
     }
-    setUserData({
-      _id: "",
-      userName: "",
-      bookings: []
-    })
+    setUserData(null);
   }, [token]);
 
-  
-
-
   useEffect(() => {
-    const savedToken = localStorage.getItem('token');
-    setToken(savedToken)
-  }, [])
+    const savedToken = localStorage.getItem("token");
+    setToken(savedToken);
+  }, []);
 
   return (
     <DataContext.Provider
@@ -82,7 +69,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         setShowModal,
         token,
         setToken,
-        userData
+        userData,
       }}
     >
       {children}

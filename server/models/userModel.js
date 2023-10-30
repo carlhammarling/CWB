@@ -19,7 +19,7 @@ exports.getOneUser = async (req, res) => {
   const userId = req.userId;
 
   try {
-    const data = await User.findById(userId);
+    const data = await User.findById(userId).select('-passwordCrypted');
     res.status(200).json(data);
   } catch {
     res.status(400).json({ message: "Could not find any user with that id." });

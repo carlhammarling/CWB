@@ -41,8 +41,25 @@ interface RegisterFormData extends LoginFormData {
     passwordRepeat: string;
 }
 
-interface User {
-    _id: string,
-    userName: string;
-    bookings?: any[];
+interface UserFetchProps {
+    _id:             string;
+    userName:        string;
+    bookings:        any[];
+    createdAt:       Date;
+    updatedAt:       Date;
+    __v:             number;
 }
+
+type PaymentMethod = "paypal" | "visa-mastercard";
+
+interface BookingData {
+    coworkingId: string;
+    userId: string;
+    paymentMethod: PaymentMethod;
+    checkIn?: Date,
+    checkOut?: Date
+  }
+
+  type CalenderValue = Date | null;
+
+

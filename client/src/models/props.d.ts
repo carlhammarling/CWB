@@ -29,6 +29,17 @@ interface CardWrapperProps {
     coworkingSpaces: CoworkingSpace[]
 }
 
+interface PMProps {
+    selectedPM: string,
+    setSelectedPM: React.Dispatch<SetStateAction<PaymentMethod>>
+}
+
+interface CalenderProps {
+    arriveDate: CalenderValue, 
+    setArriveDate: React.Dispatch<SetStateAction<CalenderValue>>, 
+    checkoutDate: CalenderValue, 
+    setCheckoutDate: React.Dispatch<SetStateAction<CalenderValue>>
+}
 
     
 

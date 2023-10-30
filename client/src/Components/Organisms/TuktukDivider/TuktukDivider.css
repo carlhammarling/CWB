@@ -1,0 +1,32 @@
+.tuktukDivider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding-inline: 3rem;
+}
+.tuktukDivider img {
+  height: 18.5rem;
+}
+@media (min-width: 1000px) {
+  .tuktukDivider {
+    flex-direction: row;
+    padding-inline: 14rem;
+    justify-content: space-between;
+  }
+  .tuktukDivider p {
+    width: 37rem;
+  }
+  .tuktukDivider img {
+    height: 25rem;
+  }
+}
+@media (min-width: 1690px) {
+  .tuktukDivider p {
+    width: 45rem;
+  }
+  .tuktukDivider img {
+    height: 30rem;
+  }
+}/*# sourceMappingURL=TuktukDivider.css.map */
