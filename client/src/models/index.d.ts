@@ -55,8 +55,9 @@ interface BookingData {
   coworkingId: string;
   userId: string;
   paymentMethod: PaymentMethod;
-  checkIn?: Date;
-  checkOut?: Date;
+  arriveDate: Date;
+  checkoutDate: Date;
+  price: number
 }
 
 

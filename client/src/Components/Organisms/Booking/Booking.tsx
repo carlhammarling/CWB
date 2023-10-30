@@ -10,7 +10,7 @@ import BookingPrice from "../../Molecules/BookingPrice/BookingPrice";
 
 const Booking = () => {
   const { userData, coworkingSpaces } = useDataContext();
-  const { selectedPM, arriveDate, checkoutDate } = useBookingContext();
+  const { selectedPM, arriveDate, checkoutDate, price } = useBookingContext();
   
   const { id } = useParams();
 
@@ -19,14 +19,15 @@ const Booking = () => {
   const [bookingData, setBookingData] = useState<BookingData>();
 
   const submitBooking = () => {
-    if (thisCoworkingSpace && userData && arriveDate && checkoutDate) {
+    if (thisCoworkingSpace && userData && arriveDate && checkoutDate && price) {
       setError(null);
       setBookingData({
         coworkingId: thisCoworkingSpace._id,
         userId: userData._id,
         paymentMethod: selectedPM,
-        checkIn: arriveDate,
-        checkOut: checkoutDate,
+        arriveDate,
+        checkoutDate,
+        price
       });
     } else {
       setError("You have to fill in all the fields");

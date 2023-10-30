@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
-import './Calendar_.scss'
+import "./Calendar_.scss";
 import { useBookingContext } from "../../../Context/BookingContext";
 
-
 const Calendar_ = () => {
-  
-  const { arriveDate, setArriveDate, checkoutDate, setCheckoutDate } = useBookingContext()
+  const { arriveDate, setArriveDate, checkoutDate, setCheckoutDate } =
+    useBookingContext();
 
   const [value, setValue] = useState<CalenderValue>(new Date());
 
@@ -14,19 +13,14 @@ const Calendar_ = () => {
     setValue(selectedDate);
     if (!arriveDate) {
       setArriveDate(selectedDate);
-    } 
-    if(arriveDate && !checkoutDate) {
-      setCheckoutDate(selectedDate);
     }
-    else {
-      setArriveDate(selectedDate)
-      setCheckoutDate(null)
+    if (arriveDate && !checkoutDate) {
+      setCheckoutDate(selectedDate);
+    } else {
+      setArriveDate(selectedDate);
+      setCheckoutDate(null);
     }
   };
-
-  useEffect(() => {
-    console.log("arrive:", arriveDate, "checkout", checkoutDate);
-  }, [value]);
 
   const today = new Date();
 
@@ -64,18 +58,18 @@ const Calendar_ = () => {
       )}
       {arriveDate && checkoutDate && (
         <>
-        <Calendar
-        onChange={handleDateChange}
-        value={[arriveDate, checkoutDate]}
-        minDate={today}
-        minDetail="decade"
-        nextLabel={<i className="fa-solid fa-chevron-right fa-lg"></i>}
-        prevLabel={<i className="fa-solid fa-chevron-left fa-lg"></i>}
-        next2Label={null}
-        prev2Label={null}
-        className="react-calendar"
-      />
-    </>
+          <Calendar
+            onChange={handleDateChange}
+            value={[arriveDate, checkoutDate]}
+            minDate={today}
+            minDetail="decade"
+            nextLabel={<i className="fa-solid fa-chevron-right fa-lg"></i>}
+            prevLabel={<i className="fa-solid fa-chevron-left fa-lg"></i>}
+            next2Label={null}
+            prev2Label={null}
+            className="react-calendar"
+          />
+        </>
       )}
     </div>
   );

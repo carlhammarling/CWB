@@ -14,6 +14,8 @@ interface BookingContextProps {
     setArriveDate: React.Dispatch<SetStateAction<CalenderValue>>, 
     checkoutDate: CalenderValue, 
     setCheckoutDate: React.Dispatch<SetStateAction<CalenderValue>>
+    price: number,
+    setPrice: React.Dispatch<SetStateAction<number>>
 }
 
 interface DataProviderProps {

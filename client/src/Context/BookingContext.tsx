@@ -12,6 +12,8 @@ export const BookingProvider = ({ children }: BookingProviderProps) => {
 
   const [arriveDate, setArriveDate] = useState<CalenderValue>(null);
   const [checkoutDate, setCheckoutDate] = useState<CalenderValue>(null);
+  const [price, setPrice] = useState(0);
+
 
   return (
     <BookingContext.Provider
@@ -21,7 +23,9 @@ export const BookingProvider = ({ children }: BookingProviderProps) => {
         arriveDate,
         setArriveDate,
         checkoutDate,
-        setCheckoutDate
+        setCheckoutDate,
+        price,
+        setPrice
       }}
     >
       {children}
