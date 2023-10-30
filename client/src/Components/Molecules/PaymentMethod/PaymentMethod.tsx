@@ -1,12 +1,16 @@
-import React, { SetStateAction } from "react";
+import { useBookingContext } from '../../../Context/BookingContext';
+import './PaymentMethod.scss'
 
-const PaymentMethod = ({ selectedPM, setSelectedPM }: PMProps) => {
+const PaymentMethod = () => {
+
+  const { selectedPM, setSelectedPM } = useBookingContext();
+
   return (
-    <div>
+    <div className='paymentMethod'>
       <h2 className="darkGray">
         Choose payment method <i className="fa-solid fa-credit-card fa-sm"></i>
       </h2>
-      <div className="paymentMethod">
+      <div className="paymentSelect">
         <img
           className={`paymentImg ${selectedPM === "paypal" ? "active" : ""}`}
           onClick={() => setSelectedPM("paypal")}

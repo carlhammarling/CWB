@@ -5,10 +5,22 @@ interface DataContextProps {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
     token: string | null;
     setToken: React.Dispatch<React.SetStateAction<string | null>>;
-    userData: any
+    userData: User | null
+}
+interface BookingContextProps {
+    selectedPM: PaymentMethod;
+    setSelectedPM: React.Dispatch<React.SetStateAction<PaymentMethod>>;
+    arriveDate: CalenderValue, 
+    setArriveDate: React.Dispatch<SetStateAction<CalenderValue>>, 
+    checkoutDate: CalenderValue, 
+    setCheckoutDate: React.Dispatch<SetStateAction<CalenderValue>>
 }
 
 interface DataProviderProps {
+    children: ReactNode;
+}
+
+interface BookingProviderProps {
     children: ReactNode;
 }
 
@@ -29,17 +41,7 @@ interface CardWrapperProps {
     coworkingSpaces: CoworkingSpace[]
 }
 
-interface PMProps {
-    selectedPM: string,
-    setSelectedPM: React.Dispatch<SetStateAction<PaymentMethod>>
-}
 
-interface CalenderProps {
-    arriveDate: CalenderValue, 
-    setArriveDate: React.Dispatch<SetStateAction<CalenderValue>>, 
-    checkoutDate: CalenderValue, 
-    setCheckoutDate: React.Dispatch<SetStateAction<CalenderValue>>
-}
 
     
 

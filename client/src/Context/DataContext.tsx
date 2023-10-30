@@ -26,7 +26,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const [token, setToken] = useState<string | null>(null);
-  const [userData, setUserData] = useState<UserFetchProps | null>(null);
+  const [userData, setUserData] = useState<User | null>(null);
 
   const getUserData = async () => {
     if (!token) {
@@ -39,8 +39,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         },
       });
 
-      const userData: UserFetchProps = res.data;
-      console.log(userData)
+      const userData: User = res.data;
       setUserData(userData);
     } catch (err) {
       console.log(err);

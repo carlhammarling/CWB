@@ -3,13 +3,16 @@ import "./Modal.scss";
 import { useDataContext } from "../../../Context/DataContext";
 import LoginRegister from "../../Organisms/LoginRegister/LoginRegister";
 import Booking from "../../Organisms/Booking/Booking";
+import { BookingProvider } from "../../../Context/BookingContext";
 
 const Modal = () => {
   const { setShowModal, userData, token } = useDataContext();
 
-  
   return (
-    <div className="modalWrapper" onClick={() => setShowModal((state) => !state)}>
+    <div
+      className="modalWrapper"
+      onClick={() => setShowModal((state) => !state)}
+    >
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="modalHeader">
           <button
@@ -20,7 +23,9 @@ const Modal = () => {
           </button>
         </div>
         <div className="modalContent">
-          {userData ? <Booking /> : <LoginRegister />}        
+          <BookingProvider>
+            {userData ? <Booking /> : <LoginRegister />}
+          </BookingProvider>
         </div>
       </div>
     </div>
