@@ -10,6 +10,7 @@ app.use(cors());
 //Routes
 app.use('/api/cowork', require('./controllers/coworkController'));
 app.use('/api/user', require('./controllers/userController'));
+app.use('/api/booking', require('./controllers/bookingController'));
 
 
 module.exports = app;

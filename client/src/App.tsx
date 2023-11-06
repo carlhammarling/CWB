@@ -4,6 +4,7 @@ import RootLayout from "./Layouts/RootLayout/RootLayout";
 import Home from "./Pages/Home/Home";
 import Details from "./Pages/Details/Details";
 import ScrollToTop from "./Utils/ScrollToTop";
+import Account from "./Pages/Account/Account";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<RootLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/cowork/:id" element={<Details />} />
+          <Route path="/account" element={<Account />} />
         </Route>
       </Routes>
     </BrowserRouter>

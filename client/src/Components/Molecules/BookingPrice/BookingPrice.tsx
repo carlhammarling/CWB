@@ -5,6 +5,8 @@ import "./BookingPrice.scss";
 const BookingPrice = (thisCoworkingSpace: CoworkingSpace) => {
   const { arriveDate, checkoutDate, price, setPrice } = useBookingContext();
 
+
+  //Try to find out what the arrivedate is and take away the weekends.
   const totalDaysCalc = (arriveDate: any, checkoutDate: any) => {
     const time = Math.abs(arriveDate - checkoutDate);
     const days = Math.ceil(time / (1000 * 60 * 60 * 24));

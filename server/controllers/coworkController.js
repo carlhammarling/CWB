@@ -1,5 +1,5 @@
-const router = require('express').Router()
-const coworkModel = require('../models/coworkModel')
+const router = require('express').Router();
+const coworkModel = require('../models/coworkModel');
 
 
 //CRUD

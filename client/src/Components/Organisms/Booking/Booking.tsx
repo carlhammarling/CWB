@@ -1,42 +1,64 @@
 import React, { useEffect, useState } from "react";
 import { useDataContext } from "../../../Context/DataContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Booking.scss";
 import PaymentMethod from "../../Molecules/PaymentMethod/PaymentMethod";
 import Calendar_ from "../Calendar_/Calendar_";
 import FacilityTextAtomRow from "../../Molecules/FacilityTextAtomRow/FacilityTextAtomRow";
 import { useBookingContext } from "../../../Context/BookingContext";
 import BookingPrice from "../../Molecules/BookingPrice/BookingPrice";
+import axios from "axios";
 
 const Booking = () => {
-  const { userData, coworkingSpaces } = useDataContext();
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+  const navigate = useNavigate()
+
+
+  const { setShowModal, coworkingSpaces, token } = useDataContext();
   const { selectedPM, arriveDate, checkoutDate, price } = useBookingContext();
-  
+
   const { id } = useParams();
 
   const [error, setError] = useState<string | null>(null);
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
-  const [bookingData, setBookingData] = useState<BookingData>();
 
-  const submitBooking = () => {
-    if (thisCoworkingSpace && userData && arriveDate && checkoutDate && price) {
-      setError(null);
-      setBookingData({
-        coworkingId: thisCoworkingSpace._id,
-        userId: userData._id,
-        paymentMethod: selectedPM,
-        arriveDate,
-        checkoutDate,
-        price
-      });
-    } else {
+  const submitBooking = async () => {
+    if (
+      !thisCoworkingSpace ||
+      !arriveDate ||
+      !checkoutDate ||
+      !price
+    ) {
       setError("You have to fill in all the fields");
+      return;
+    }
+    const bookingData: BookingData = {
+      coworkingId: thisCoworkingSpace._id,
+      paymentMethod: selectedPM,
+      arriveDate,
+      checkoutDate,
+      price,
+    };
+
+    try {
+      console.log(bookingData)
+      const res = await axios.post(BASE_URL + "/api/booking", bookingData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
+      if(res.data) {
+        setError(null);
+        console.log(res.data)
+        setTimeout(() => {
+          navigate('/account')
+          setShowModal(false)
+        }, 1000)
+      }
+    } catch (err) {
+      console.log(err)
     }
   };
-
-  useEffect(() => {
-    console.log(bookingData);
-  }, [bookingData]);
 
   return (
     <div className="booking">

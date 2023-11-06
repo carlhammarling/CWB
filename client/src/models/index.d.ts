@@ -53,7 +53,6 @@ type PaymentMethod = "paypal" | "visa-mastercard";
 
 interface BookingData {
   coworkingId: string;
-  userId: string;
   paymentMethod: PaymentMethod;
   arriveDate: Date;
   checkoutDate: Date;

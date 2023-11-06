@@ -50,14 +50,12 @@ exports.registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const userHashedPassword = new User({
+    const newUser = await User.create({
       userName,
       passwordCrypted: hashedPassword,
     });
 
-    //Making sure the user is stored before generating the token.
-    const savedUser = await userHashedPassword.save();
-    res.status(201).json(auth.generateToken(savedUser));
+    res.status(201).json(auth.generateToken(newUser));
   } catch {
     res
       .status(400)
