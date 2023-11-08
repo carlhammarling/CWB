@@ -5,7 +5,17 @@ const User = require("../schemas/userSchema");
 
 exports.getAllBookings = async (req, res) => {
   try {
-    const data = await Booking.find();
+    const data = await Booking.find().populate("coworkingId");
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(400).json({ message: "Could not get the bookings." });
+  }
+};
+
+exports.getUserBooking = async (req, res) => {
+  const userId = req.userId;
+  try {
+    const data = await Booking.find({ userId }).populate("coworkingId");
     res.status(200).json(data);
   } catch (err) {
     res.status(400).json({ message: "Could not get the bookings." });
@@ -50,10 +60,8 @@ exports.postBooking = async (req, res) => {
 
     res.status(201).json(newBooking);
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: "Somthing went wrong when trying to create the booking.",
-      });
+    res.status(500).json({
+      message: "Somthing went wrong when trying to create the booking.",
+    });
   }
 };

@@ -1,0 +1,33 @@
+@import "../../Styles/variables";
+
+.account {
+  margin-inline: $space-x-1;
+
+  .accountHeader {
+    height: 300px;
+    display: grid;
+    place-items: center;
+
+    .h1 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      i {
+        color: $darkGray;
+      }
+    }
+  }
+  .userInfo {
+      display: flex;
+      gap: $space-x-1;
+      align-items: center;
+      padding-bottom: 8px;
+      .dot {
+          width: .8rem;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background-color: $green;
+      }
+  }
+}

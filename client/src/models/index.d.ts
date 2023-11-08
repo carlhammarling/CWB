@@ -60,4 +60,13 @@ interface BookingData {
 }
 
 
+interface BookedData {
+  coworkingId: CoworkingSpace;
+  paymentMethod: PaymentMethod;
+  arriveDate: Date;
+  checkoutDate: Date;
+  price: number
+}
+
+
 type CalenderValue = Date | null;

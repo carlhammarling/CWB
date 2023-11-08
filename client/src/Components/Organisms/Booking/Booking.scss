@@ -3,6 +3,8 @@
 .booking {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
   gap: $space-y-3;
 
   .bookingContent {
@@ -17,5 +19,8 @@
     background-size: contain;
   }
 
- 
+  .bookingSuccess {
+    align-self: center;
+    margin-bottom: 5rem;
+  }
 }

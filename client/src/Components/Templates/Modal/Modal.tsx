@@ -6,7 +6,7 @@ import Booking from "../../Organisms/Booking/Booking";
 import { BookingProvider } from "../../../Context/BookingContext";
 
 const Modal = () => {
-  const { setShowModal, userData, token } = useDataContext();
+  const { setShowModal, userData } = useDataContext();
 
   return (
     <div

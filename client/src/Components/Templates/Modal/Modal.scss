@@ -21,19 +21,21 @@
     width: 100vw;
     background-color: $white;
     border-radius: 20px 20px 0px 0px;
-    
+
     .modalHeader {
-        display: flex;
-        justify-content: flex-end;
-        padding: .75rem;
-        width: 100%;
-        border-bottom: 1px solid $lineGray;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.75rem;
+      width: 100%;
+      border-bottom: 1px solid $lineGray;
     }
 
     .modalContent {
-        padding: $space-x-1;
-        overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      padding: $space-x-1;
+      overflow-y: auto;
+      flex-grow: 1;
     }
-
   }
 }

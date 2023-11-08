@@ -22,6 +22,10 @@
       font-size: 5rem;
       line-height: 111%; /* 86.58px */
     }
+
+    & span.yellow {
+      color: $yellow;
+    }
   }
 
   h1.heroHeader {
