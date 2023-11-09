@@ -1,0 +1,24 @@
+@import "../../../Styles/variables";
+
+.accountListWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-inline: -$space-x-1;
+
+  .accountListHeader {
+    background-color: $darkGray;
+    padding: $space-x-1;
+    h2 {
+      color: white;
+    }
+  }
+
+  .accountList {
+    display: flex;
+    flex-direction: column;
+    gap: $space-y-3;
+    background-color: $lightestGray;
+
+    
+  }
+}

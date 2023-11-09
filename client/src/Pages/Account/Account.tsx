@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-import BookingsList from "../../Components/Templates/BookingsList/BookingsList";
+import BookingsList from "../../Components/Templates/AccountList/AccountList";
 import { useDataContext } from "../../Context/DataContext";
 import "./Account.scss";
 

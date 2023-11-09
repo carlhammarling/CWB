@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   gap: $space-y-3;
 
   .bookingContent {
@@ -21,6 +20,6 @@
 
   .bookingSuccess {
     align-self: center;
-    margin-bottom: 5rem;
+    margin-top: 5rem;
   }
 }
