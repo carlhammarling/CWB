@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./AccountList.scss";
 import { useDataContext } from "../../../Context/DataContext";
 import axios from "axios";
-import { DateConverter } from "../../../Utils/DateConverter";
 import AccountCard from "../../Organisms/AccountCard/AccountCard";
+import { ClipLoader } from "react-spinners";
 
 const AccountList = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -53,6 +53,9 @@ const AccountList = () => {
     setOldBookings(oldB);
   }, [userBookings]);
 
+  if (upComingBookings.length < 1) {
+    return <div></div>;
+  }
 
   return (
     <div className="accountListWrapper">
@@ -62,7 +65,7 @@ const AccountList = () => {
       <div className="accountList">
         {upComingBookings &&
           upComingBookings.map((booking, index) => (
-           <AccountCard key={index} booking={booking} edit={true} />
+            <AccountCard key={index} booking={booking} edit={true} />
           ))}
       </div>
       <div className="accountListHeader">
@@ -71,7 +74,7 @@ const AccountList = () => {
       <div className="accountList">
         {oldBookings &&
           oldBookings.map((booking, index) => (
-            <AccountCard key={index} booking={booking} edit={false}/>
+            <AccountCard key={index} booking={booking} edit={false} />
           ))}
       </div>
     </div>

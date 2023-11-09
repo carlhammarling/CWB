@@ -6,7 +6,11 @@ import "./Account.scss";
 
 const Account = () => {
   const { userData } = useDataContext();
+  const navigate = useNavigate()
 
+if(!userData)  {
+  navigate('/')
+}
   return (
     <div className="account">
       <div className="accountHeader">

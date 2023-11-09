@@ -7,7 +7,7 @@ const bookingModel = require('../models/bookingModel');
 router.get('/', bookingModel.getAllBookings);
 router.get('/userbooking', verifyToken, bookingModel.getUserBooking);
 router.post('/', verifyToken, bookingModel.postBooking);
-// router.put('/')
-// router.delete('/')
+router.put('/', verifyToken, bookingModel.updateBooking);
+router.delete('/', verifyToken, bookingModel.deleteOneBooking);
 
 module.exports = router;

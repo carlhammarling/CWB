@@ -65,3 +65,50 @@ exports.postBooking = async (req, res) => {
     });
   }
 };
+
+exports.deleteOneBooking = async (req, res) => {
+  const { _id } = req.body;
+
+  try {
+    const data = await Booking.findByIdAndDelete(_id);
+    if (!data) {
+      return res
+        .status(404)
+        .json({ message: "Could not find any booking with that id." });
+    }
+    return res
+      .status(200)
+      .json({ message: `Booking with id: ${_id} was deleted` });
+  } catch (err) {
+    res.status(400).json({
+      message: "Something went wrong while trying to delete the booking.",
+    });
+  }
+};
+
+exports.updateBooking = async (req, res) => {
+  const { _id, paymentMethod, arriveDate, checkoutDate, price } = req.body;
+
+  try {
+    if (!_id || !paymentMethod || !arriveDate || !checkoutDate || !price) {
+      return res
+        .status(400)
+        .json({ message: "You have to fill in all the fields." });
+    }
+    const data = Booking.findByIdAndUpdate(
+      _id,
+      { paymentMethod, arriveDate, checkoutDate, price },
+      { new: true }
+    );
+    if (!data) {
+      return res.status(404).json({ message: "Could not update the booking." });
+    }
+    return res.status(201).json(data);
+  } catch (err) {
+    res
+      .status(400)
+      .json({
+        message: "Something went wrong while trying to update the booking.",
+      });
+  }
+};

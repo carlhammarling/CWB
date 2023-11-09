@@ -24,6 +24,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   }, []);
 
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const [token, setToken] = useState<string | null>(null);
   const [userData, setUserData] = useState<User | null>(null);
@@ -66,6 +67,8 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         setCoworkingSpaces,
         showModal,
         setShowModal,
+        showMenu,
+        setShowMenu,
         token,
         setToken,
         userData,

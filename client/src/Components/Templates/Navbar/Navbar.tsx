@@ -4,18 +4,10 @@ import { NavLink } from "react-router-dom";
 import { useDataContext } from "../../../Context/DataContext";
 
 const Navbar = () => {
-
-  const { setShowModal, setToken } = useDataContext()
-
-
-const logOut = () => {
-  setToken(null)
-  
-  localStorage.removeItem('token')
-};
+  const { setShowMenu, setToken } = useDataContext();
 
   return (
-    <div className="navbar" onClick={() => setShowModal(false)}>
+    <div className="navbar">
       <nav>
         <ul>
           <li>
@@ -23,8 +15,8 @@ const logOut = () => {
               <i className="fa-solid fa-house fa-sm"></i>
             </NavLink>
           </li>
-          <li className="navIcon" onClick={logOut}>
-          <i className="fa-solid fa-bars fa-sm"></i>
+          <li className="navIcon" onClick={() => setShowMenu(true)}>
+            <i className="fa-solid fa-bars fa-sm"></i>
           </li>
         </ul>
       </nav>
