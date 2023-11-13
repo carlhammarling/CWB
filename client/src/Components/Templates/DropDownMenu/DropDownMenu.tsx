@@ -12,11 +12,11 @@ const DropDownMenu = () => {
 
   return (
     <div
-      className="modalWrapper"
+      className="dropdownWrapper"
       onClick={() => setShowMenu((state) => !state)}
     >
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modalHeader">
+      <div className="dropdown" onClick={(e) => e.stopPropagation()}>
+        <div className="dropdownHeader">
           <button
             className="invisibleButton"
             onClick={() => setShowMenu((state) => !state)}
@@ -24,7 +24,7 @@ const DropDownMenu = () => {
             <i className="fa-solid fa-xmark"></i>
           </button>
         </div>
-        <div className="modalContent">
+        <div className="dropdownContent">
           <nav className="menu">
             <ul>
               <li>

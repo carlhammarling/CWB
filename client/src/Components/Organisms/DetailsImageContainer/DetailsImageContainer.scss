@@ -7,7 +7,7 @@
 
   gap: 0.25rem;
   aspect-ratio: 1;
-  border-radius: 0 1.25rem 0 1.25rem;
+  border-radius: 0 20px;
   overflow: hidden;
 
   @media (min-width: $breakpoint) {
@@ -16,7 +16,7 @@
 
     width: 100%;
     aspect-ratio: 3/1;
-    border-radius: 0 5rem;
+    border-radius: 0 80px;
     gap: 0.5rem;
     }
 

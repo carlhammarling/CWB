@@ -78,8 +78,8 @@ const RegisterForm = ({ togglePage }: LoginFormProps) => {
         <p className="underline pointer" onClick={togglePage}>
           Login here
         </p>
-      </div>
       <p>{error}</p>
+      </div>
       <button className="greenButton h2">Register</button>
     </form>
   );
