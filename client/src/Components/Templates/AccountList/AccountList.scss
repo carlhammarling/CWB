@@ -18,7 +18,10 @@
     flex-direction: column;
     gap: $space-y-3;
     background-color: $lightestGray;
+    @media (min-width: $breakpoint) {
+      align-items: center;
+      gap: $gap-desktop;
 
-    
+    }
   }
 }

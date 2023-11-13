@@ -45,6 +45,11 @@ interface CardWrapperProps {
     coworkingSpaces: CoworkingSpace[]
 }
 
+interface accountCardProps {
+    booking: BookedData;
+    edit: boolean;
+  }
+
 
 
     

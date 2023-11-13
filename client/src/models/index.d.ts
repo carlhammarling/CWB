@@ -59,7 +59,6 @@ interface BookingData {
   price: number
 }
 
-
 interface BookedData {
   coworkingId: CoworkingSpace;
   paymentMethod: PaymentMethod;

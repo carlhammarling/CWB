@@ -3,31 +3,49 @@
 .account {
   margin-inline: $space-x-1;
 
-  .accountHeader {
-    height: 300px;
-    display: grid;
-    place-items: center;
-
-    .h1 {
-      display: flex;
+  .accountHeaderWrapper {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $breakpoint) {
       align-items: center;
-      gap: 1rem;
-
-      i {
-        color: $darkGray;
-      }
     }
-  }
-  .userInfo {
-      display: flex;
-      gap: $space-x-1;
-      align-items: center;
-      padding-bottom: 8px;
-      .dot {
-          width: .8rem;
+    .accountHeader {
+      @media (min-width: $breakpoint) {
+        display: flex;
+        justify-content: space-between;
+        width: 85vw;
+        margin-top: 2rem;
+      }
+      .accountLogo {
+        height: 280px;
+        display: grid;
+        place-items: center;
+
+        .h1 {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          i {
+            color: $darkGray;
+            @media (min-width: $breakpoint) {
+              font-size: 44px;
+            }
+          }
+        }
+      }
+      .userInfo {
+        display: flex;
+        gap: $space-x-1;
+        align-items: center;
+        padding-bottom: 8px;
+        .dot {
+          width: 0.8rem;
           aspect-ratio: 1;
           border-radius: 50%;
           background-color: $green;
+        }
       }
+    }
   }
 }
