@@ -6,9 +6,27 @@
   z-index: 2;
   padding: 1rem;
 
+  nav.desktop {
+    display: none;
+  }
+  @media (min-width: $breakpoint) {
+    nav.mobile {
+      display: none;
+    }
+    nav.desktop {
+      display: block;
+
+    }
+   }
+
   ul {
     display: flex;
+    gap: 1rem;
     justify-content: space-between;
+    
+    & :nth-child(2) {
+      margin-left: auto;
+    }
   }
 
   .navIcon {
@@ -19,6 +37,7 @@
     background-color: $lightestGray;
     border-radius: 50%;
     color: $darkGray;
+    cursor: pointer;
 
     @media (min-width: $breakpoint) {
       width: 64px;

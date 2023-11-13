@@ -56,6 +56,10 @@ const Booking = () => {
     }
   };
 
+  if(!thisCoworkingSpace) {
+    setShowModal(false)
+  }
+
   return (
     <div className="booking">
       {thisCoworkingSpace && !bookingSuccess && (

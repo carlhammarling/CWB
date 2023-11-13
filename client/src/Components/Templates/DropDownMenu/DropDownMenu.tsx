@@ -2,19 +2,13 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./DropDownMenu.scss";
 import { useDataContext } from "../../../Context/DataContext";
-import LoginRegister from "../../Organisms/LoginRegister/LoginRegister";
 const DropDownMenu = () => {
-  const { setShowMenu, userData, setToken } = useDataContext();
-  const [showLogin, setShowLogin] = useState(false);
+  const { setShowMenu, userData, setToken, setShowModal } = useDataContext();
 
   const logOut = () => {
     setToken(null);
     localStorage.removeItem("token");
   };
-
-  useEffect(() => {
-    setShowLogin(false)
-  }, [userData])
 
   return (
     <div
@@ -31,10 +25,7 @@ const DropDownMenu = () => {
           </button>
         </div>
         <div className="modalContent">
-          {showLogin ? (
-            <LoginRegister />
-          ) : (
-            <nav className="menu">
+          <nav className="menu">
             <ul>
               <li>
                 <NavLink to="/" onClick={() => setShowMenu(false)}>
@@ -68,7 +59,13 @@ const DropDownMenu = () => {
                   </li>
                 </>
               ) : (
-                <li className="menuButton" onClick={() => setShowLogin(true)}>
+                <li
+                  className="menuButton"
+                  onClick={() => {
+                    setShowModal(true);
+                    setShowMenu(false);
+                  }}
+                >
                   <div>
                     <i className="fa-solid fa-user fa-xs"></i>
                   </div>
@@ -77,8 +74,6 @@ const DropDownMenu = () => {
               )}
             </ul>
           </nav>
-          )}
-          
         </div>
       </div>
     </div>

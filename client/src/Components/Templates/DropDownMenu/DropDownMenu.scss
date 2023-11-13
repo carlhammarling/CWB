@@ -49,6 +49,7 @@
           padding: 8px 16px;
           color: $darkGray;
           border-radius: 0 20px;
+          cursor: pointer;
 
           &.active {
             background-color: $lightestGray;
