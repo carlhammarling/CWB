@@ -13,12 +13,14 @@ const LoginRegister = () => {
 
   return (
     <div className="loginRegister">
-      <h1>{toggler ? "Login" : "Register"}</h1>
-      {toggler ? (
-        <LoginForm togglePage={togglePage} />
-      ) : (
-        <RegisterForm togglePage={togglePage} />
-      )}
+      <div className="form">
+        <h1>{toggler ? "Login" : "Register"}</h1>
+        {toggler ? (
+          <LoginForm togglePage={togglePage} />
+        ) : (
+          <RegisterForm togglePage={togglePage} />
+        )}
+      </div>
     </div>
   );
 };

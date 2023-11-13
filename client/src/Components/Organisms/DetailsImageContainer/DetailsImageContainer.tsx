@@ -10,10 +10,8 @@ const DetailsImageContainer = (props: CoworkingSpace) => {
 
   return (
     <div className="detailsImageContainer">
-      <div
-        className="bigImage"
-        style={{ backgroundImage: `url(${selectedImage})` }}
-      ></div>
+      <img className="bigImage" src={selectedImage} />
+
       <div className="smallImageContainer">
         {props.images.slice(0, props.images.length - 1).map((image, index) => (
           <div

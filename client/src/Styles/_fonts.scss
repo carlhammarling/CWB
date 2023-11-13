@@ -16,11 +16,17 @@
     line-height: 125%;
     @media (min-width: $breakpoint) {
       font-size: 4rem;
-      line-height: 111%; /* 86.58px */
+      line-height: 111%; 
+      &.small {
+        font-size: 3.5rem;
+      }
     }
     @media (min-width: $breakpoint2) {
       font-size: 5rem;
-      line-height: 111%; /* 86.58px */
+      line-height: 111%; 
+      &.small {
+        font-size: 4.5rem;
+      }
     }
 
     & span.yellow {

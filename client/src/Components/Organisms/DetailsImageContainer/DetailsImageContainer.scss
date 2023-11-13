@@ -22,7 +22,7 @@
 
   .bigImage {
     flex-grow: 1;
-    background-size: cover;
+    object-fit: cover;
     background-position: center;
   }
 

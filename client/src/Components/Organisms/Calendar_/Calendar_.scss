@@ -6,11 +6,20 @@
 
 }
 .react-calendar {
-    width: 390px;
     max-width: 100%;
     background: white;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
+    @media (min-width: $breakpoint) {
+      font-size: 1.25rem;
+      max-width: 70%;
+
+    }
+  }
+
+  .react-calendar__navigation__label__labelText {
+    font-size: 1.25rem;
+
   }
   
   .react-calendar--doubleView {

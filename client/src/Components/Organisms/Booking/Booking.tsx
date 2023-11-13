@@ -8,8 +8,19 @@ import FacilityTextAtomRow from "../../Molecules/FacilityTextAtomRow/FacilityTex
 import { useBookingContext } from "../../../Context/BookingContext";
 import BookingPrice from "../../Molecules/BookingPrice/BookingPrice";
 import axios from "axios";
+import AdressContact from "../../Molecules/AdressContact/AdressContact";
 
 const Booking = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
@@ -56,39 +67,93 @@ const Booking = () => {
     }
   };
 
-  if(!thisCoworkingSpace) {
-    setShowModal(false)
+  if (!thisCoworkingSpace) {
+    setShowModal(false);
   }
 
   return (
-    <div className="booking">
-      {thisCoworkingSpace && !bookingSuccess && (
-        <div className="bookingContent">
-          <h1>Choose dates</h1>
-          <div
-            className="coworkImg"
-            style={{
-              backgroundImage: `url(${thisCoworkingSpace.images[0]})`,
-            }}
-          ></div>
-          <h2 className="darkGray">{thisCoworkingSpace.name}</h2>
-          <FacilityTextAtomRow facilities={thisCoworkingSpace.facilities} />
-          <Calendar_ />
-          <BookingPrice {...thisCoworkingSpace} />
-          <PaymentMethod />
-          {error && <p>{error}</p>}
-          <button className="greenButton h2" onClick={submitBooking}>
-            Book now!
-          </button>
+    <div>
+      {windowWidth <= 1000 ? (
+        <div className="booking">
+          {thisCoworkingSpace && !bookingSuccess && (
+            <div className="bookingContent">
+              <h1>Choose dates</h1>
+              <img
+                className="coworkImg"
+                src={thisCoworkingSpace.images[0]}
+                alt={thisCoworkingSpace.name}
+              />
+              <h2 className="darkGray">{thisCoworkingSpace.name}</h2>
+              <AdressContact
+                email={thisCoworkingSpace.email}
+                adress={thisCoworkingSpace.adress}
+              />
+              <FacilityTextAtomRow facilities={thisCoworkingSpace.facilities} />
+              <Calendar_ />
+              <BookingPrice {...thisCoworkingSpace} />
+              <PaymentMethod />
+              {error && <p>{error}</p>}
+              <button className="greenButton h2" onClick={submitBooking}>
+                Book now!
+              </button>
+            </div>
+          )}
+          {thisCoworkingSpace && bookingSuccess && (
+            <div className="bookingSuccess">
+              <h1>
+                Thank you <br />
+                for your <br />
+                <span className="yellow">booking!</span>
+              </h1>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="booking">
+          {thisCoworkingSpace && !bookingSuccess && (
+            <div className="bookingContent">
+              <div className="bookingCol">
+                <h1 className="small">Choose dates</h1>
+                <Calendar_ />
+                <PaymentMethod />
+              </div>
+              <div className="bookingCol">
+                <div className="colTop">
+                  <img
+                    className="coworkImg"
+                    src={thisCoworkingSpace.images[0]}
+                    alt={thisCoworkingSpace.name}
+                  />
+                  <h2 className="darkGray">{thisCoworkingSpace.name}</h2>
+                  <AdressContact
+                    email={thisCoworkingSpace.email}
+                    adress={thisCoworkingSpace.adress}
+                  />
+                  <FacilityTextAtomRow
+                    facilities={thisCoworkingSpace.facilities}
+                  />
+                </div>
+                <div className="colBottom">
+                  <BookingPrice {...thisCoworkingSpace} />
+                  {error && <p>{error}</p>}
+                  <button className="greenButton h2" onClick={submitBooking}>
+                    Book now!
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          {thisCoworkingSpace && bookingSuccess && (
+            <div className="bookingSuccess">
+              <h1>
+                Thank you <br />
+                for your <br />
+                <span className="yellow">booking!</span>
+              </h1>
+            </div>
+          )}
         </div>
       )}
-      {thisCoworkingSpace && bookingSuccess && (
-        <div className="bookingSuccess">
-          <h1>Thank you <br />for your <br /><span className='yellow'>booking!</span></h1>
-        </div>
-      )
-
-      }
     </div>
   );
 };

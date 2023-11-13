@@ -3,11 +3,11 @@ import { DateConverter } from "../../../Utils/DateConverter";
 import "./AccountCard.scss";
 
 const AccountCard = (props: accountCardProps) => {
-  const [windoWidth, setWindoWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setWindoWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
@@ -29,7 +29,7 @@ const AccountCard = (props: accountCardProps) => {
             <></>
           )}
         </div>
-        {windoWidth <= 1000 ? (
+        {windowWidth <= 1000 ? (
           <div className="cardBottom">
             <p className="xs">
               {DateConverter(props.booking.arriveDate)} -{" "}

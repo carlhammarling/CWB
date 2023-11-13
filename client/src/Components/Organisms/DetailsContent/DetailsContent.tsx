@@ -1,6 +1,7 @@
 import React from 'react'
 import FacilityTextAtomRow from '../../Molecules/FacilityTextAtomRow/FacilityTextAtomRow'
 import './DetailsContent.scss'
+import AdressContact from '../../Molecules/AdressContact/AdressContact'
 
 const DetailsContent = (props: CoworkingSpace) => {
   return (
@@ -8,10 +9,7 @@ const DetailsContent = (props: CoworkingSpace) => {
         <div>
             <h1>{props.name}</h1>
         </div>
-        <div>
-            <p className='xs'><i className="fa-solid fa-location-dot fa-sm"></i> {props.adress}</p>
-            <p className='xs'><i className="fa-regular fa-envelope fa-sm"></i> {props.email}</p>
-        </div>
+        <AdressContact email={props.email} adress={props.adress} />
         <FacilityTextAtomRow facilities={props.facilities}/>
         <p className='description'>{props.description}</p>
     </div>

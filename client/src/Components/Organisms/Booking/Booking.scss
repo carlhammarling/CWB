@@ -10,12 +10,35 @@
     display: flex;
     flex-direction: column;
     gap: $space-y-3;
+
+    @media (min-width: $breakpoint) {
+      flex-direction: row;
+      gap: $gap-desktop;
+
+      .bookingCol {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: $space-y-3;
+
+        .colTop, .colBottom {
+          display: flex;
+          flex-direction: column;
+          gap: $space-y-3;
+        }
+      }
+    }
   }
   .coworkImg {
     width: 100%;
     aspect-ratio: 3/2;
     border-radius: 0 1.25rem 0 1.25rem;
-    background-size: contain;
+    object-fit: cover;
+    @media (min-width: $breakpoint) {
+      aspect-ratio: 4/2;
+
+    }
   }
 
   .bookingSuccess {

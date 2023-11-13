@@ -2,5 +2,9 @@
 @import "../../../Styles/variables";
 
 .loginRegister {
-    @include mixins.loginForm;
+    display: grid;
+    place-items: center;
+    .form {
+        @include mixins.loginForm;
+    }
 }

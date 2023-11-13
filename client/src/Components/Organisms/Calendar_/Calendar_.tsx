@@ -33,6 +33,7 @@ const Calendar_ = () => {
             onChange={handleDateChange}
             minDate={today}
             value={value}
+            locale="en-GB"
             minDetail="decade"
             nextLabel={<i className="fa-solid fa-chevron-right fa-lg"></i>}
             prevLabel={<i className="fa-solid fa-chevron-left fa-lg"></i>}
@@ -47,6 +48,7 @@ const Calendar_ = () => {
           <Calendar
             onChange={handleDateChange}
             value={[arriveDate, value]}
+            locale="en-GB"
             minDate={arriveDate}
             minDetail="decade"
             nextLabel={<i className="fa-solid fa-chevron-right fa-lg"></i>}

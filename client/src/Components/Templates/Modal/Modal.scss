@@ -40,12 +40,10 @@
       width: 100%;
       border-bottom: 1px solid $lineGray;
 
-      @media (min-width: $breakpoint) { 
+      @media (min-width: $breakpoint) {
         border: 0;
-        padding: 40px;
-
+        padding: 40px 40px 0 0;
       }
-
     }
 
     .modalContent {
@@ -56,8 +54,10 @@
       flex-grow: 1;
 
       @media (min-width: $breakpoint) {
-        align-items: center;
-        margin-top: 40px;
+        padding-inline: 60px;
+      }
+      @media (min-width: $breakpoint2) {
+        padding-inline: 80px;
       }
     }
 
