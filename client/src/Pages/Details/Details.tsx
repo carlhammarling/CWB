@@ -7,30 +7,21 @@ import DetailsContent from "../../Components/Organisms/DetailsContent/DetailsCon
 import Pricing from "../../Components/Molecules/Pricing/Pricing";
 import Reviews from "../../Components/Molecules/Reviews/Reviews";
 import Map from "../../Components/Molecules/Map/Map";
+import useWindowSize from "../../Utils/useWindowSize";
 
 const Details = () => {
   const { coworkingSpaces, setShowModal } = useDataContext();
   const { id } = useParams();
+  const windowWidth = useWindowSize()
 
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
 
-  const [windowwWidth, setWindowwWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowwWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <div className="detailsWrapper">
       {thisCoworkingSpace && (
         <div>
-          {windowwWidth <= 1000 ? (
+          {windowWidth <= 1000 ? (
             <div className="details">
               <DetailsImageContainer {...thisCoworkingSpace} />
               <DetailsContent {...thisCoworkingSpace} />

@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { DateConverter } from "../../../Utils/DateConverter";
 import "./AccountCard.scss";
+import { useDataContext } from "../../../Context/DataContext";
+import useWindowSize from "../../../Utils/useWindowSize";
+import useEditBooking from "../../../Utils/useEditBooking";
+import { useBookingContext } from "../../../Context/BookingContext";
 
 const AccountCard = (props: accountCardProps) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { setShowModal, setEdit, setEditId } = useDataContext();
+  const windowWidth = useWindowSize();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className={`accountCard ${!props.edit ? "oldBooking" : ""}`}>
@@ -22,7 +18,8 @@ const AccountCard = (props: accountCardProps) => {
         <div className="cardTop">
           <h3>{props.booking.coworkingId.name}</h3>
           {props.edit ? (
-            <button>
+            <button onClick={() => {setShowModal(true); setEdit(true); setEditId(props.booking.coworkingId._id);
+            }}>
               <i className="fa-solid fa-pen"></i>
             </button>
           ) : (
@@ -42,7 +39,7 @@ const AccountCard = (props: accountCardProps) => {
             <p className="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
               dolor, soluta consectetur repellat praesentium odio eaque porro,
-              nihil accusamus libero aspernatur. 
+              nihil accusamus libero aspernatur.
             </p>
             <div className="cardBottom">
               <p className="bold">

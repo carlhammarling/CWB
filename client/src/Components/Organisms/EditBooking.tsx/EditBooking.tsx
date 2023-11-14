@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDataContext } from "../../../Context/DataContext";
 import { useParams } from "react-router-dom";
-import "./Booking.scss";
+import "./EditBooking.scss";
 import PaymentMethod from "../../Molecules/PaymentMethod/PaymentMethod";
 import Calendar_ from "../Calendar_/Calendar_";
 import FacilityTextAtomRow from "../../Molecules/FacilityTextAtomRow/FacilityTextAtomRow";
@@ -10,26 +10,20 @@ import AdressContact from "../../Molecules/AdressContact/AdressContact";
 import useWindowSize from "../../../Utils/useWindowSize";
 import BookingSuccess from "../../Atoms/BookingSucess/BookingSuccess";
 import useBooking from "../../../Utils/useBooking";
+import useEditBooking from "../../../Utils/useEditBooking";
+import { useBookingContext } from "../../../Context/BookingContext";
 
-const Booking = () => {
+const EditBooking = () => {
   const windowWidth = useWindowSize();
 
-  const { setShowModal } = useDataContext();
-  const { id } = useParams();
+  const { setShowModal, editId } = useDataContext();
   const { thisCoworkingSpace, submitBooking, error, bookingSuccess } =
-    useBooking(id);
-
-  if (!thisCoworkingSpace) {
-    setShowModal(false);
-  }
+    useEditBooking(editId);
 
   return (
-    <div className="booking">
+    <div className="editBooking">
       {windowWidth <= 1000 ? (
-
-
-
-//Mobile
+        //Mobile
         thisCoworkingSpace && !bookingSuccess ? (
           <div className="bookingContent">
             <h1>Choose dates</h1>
@@ -49,22 +43,16 @@ const Booking = () => {
             <PaymentMethod />
             {error && <p>{error}</p>}
             <button className="greenButton h2" onClick={submitBooking}>
-              Book now!
+              Confirm changes
+            </button>
+            <button className="redButton h2" onClick={submitBooking}>
+              Cancel booking
             </button>
           </div>
         ) : (
           <BookingSuccess />
         )
-      ) 
-      
-      
-
-      
-      : 
-      
-
-
-// Desktop
+      ) : // Desktop
       thisCoworkingSpace && !bookingSuccess ? (
         <div className="bookingContent">
           <div className="bookingCol">
@@ -90,7 +78,10 @@ const Booking = () => {
               <BookingPrice {...thisCoworkingSpace} />
               {error && <p>{error}</p>}
               <button className="greenButton h2" onClick={submitBooking}>
-                Book now!
+                Confirm changes
+              </button>
+              <button className="redButton h2" onClick={submitBooking}>
+                Cancel booking
               </button>
             </div>
           </div>
@@ -102,4 +93,4 @@ const Booking = () => {
   );
 };
 
-export default Booking;
+export default EditBooking;

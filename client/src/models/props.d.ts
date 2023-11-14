@@ -7,6 +7,10 @@ interface DataContextProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   showMenu: boolean;
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  edit: boolean;
+  setEdit: React.Dispatch<React.SetStateAction<boolean>>;
+  editId: string | undefined,
+  setEditId: React.Dispatch<React.SetStateAction<string | undefined>>;
   token: string | null;
   setToken: React.Dispatch<React.SetStateAction<string | null>>;
   userData: User | null;

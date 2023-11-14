@@ -25,6 +25,9 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [edit, setEdit] = useState<boolean>(false);
+  const [editId, setEditId] = useState<string | undefined>()
+
 
   const [token, setToken] = useState<string | null>(null);
   const [userData, setUserData] = useState<User | null>(null);
@@ -72,6 +75,10 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         token,
         setToken,
         userData,
+        edit,
+        setEdit,
+        editId,
+        setEditId
       }}
     >
       {children}

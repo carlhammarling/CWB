@@ -230,7 +230,12 @@
   }
 
   .greenButton {
-    @include mixins.greenButton;
+    @include mixins.bigButton;
+    background-color: $green;
+  }
+  .redButton {
+    @include mixins.bigButton;
+    background-color: $red;
   }
   .invisibleButton {
     @include mixins.invisibleButton;

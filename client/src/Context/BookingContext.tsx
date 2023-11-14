@@ -15,6 +15,7 @@ export const BookingProvider = ({ children }: BookingProviderProps) => {
   const [price, setPrice] = useState(0);
 
 
+
   return (
     <BookingContext.Provider
       value={{

@@ -5,9 +5,11 @@ import { useDataContext } from "../../../Context/DataContext";
 import LoginRegister from "../../Organisms/LoginRegister/LoginRegister";
 import Booking from "../../Organisms/Booking/Booking";
 import { BookingProvider } from "../../../Context/BookingContext";
+import EditBooking from "../../Organisms/EditBooking.tsx/EditBooking";
 
 const Modal = () => {
-  const { setShowModal, userData } = useDataContext();
+  const { setShowModal, userData, edit } = useDataContext();
+
 
   return (
     <div
@@ -25,7 +27,18 @@ const Modal = () => {
         </div>
         <div className="modalContent">
           <BookingProvider>
-            {userData ? <Booking /> : <LoginRegister />}
+            {edit ? (
+              userData ? (
+                <EditBooking />
+                // <h1>Hej</h1>
+              ) : (
+                <LoginRegister />
+              )
+            ) : userData ? (
+              <Booking />
+            ) : (
+              <LoginRegister />
+            )}
           </BookingProvider>
         </div>
       </div>
