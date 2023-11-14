@@ -3,7 +3,9 @@
 
 .loginRegister {
     display: grid;
-    place-items: center;
+    @media (min-width: $breakpoint) {
+        place-items: center;
+    } 
     .form {
         @include mixins.loginForm;
     }

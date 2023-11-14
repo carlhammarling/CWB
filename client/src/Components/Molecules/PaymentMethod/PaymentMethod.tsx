@@ -7,9 +7,10 @@ const PaymentMethod = () => {
 
   return (
     <div className='paymentMethod'>
-      <h2 className="darkGray">
+      <h2 className="darkGray small">
         Choose payment method <i className="fa-solid fa-credit-card fa-sm"></i>
       </h2>
+      
       <div className="paymentSelect">
         <img
           className={`paymentImg ${selectedPM === "paypal" ? "active" : ""}`}

@@ -24,9 +24,6 @@
     @media (min-width: $breakpoint2) {
       font-size: 5rem;
       line-height: 111%; 
-      &.small {
-        font-size: 4.5rem;
-      }
     }
 
     & span.yellow {
@@ -61,6 +58,9 @@
     @media (min-width: $breakpoint) {
       font-size: 2rem;
       line-height: normal;
+      &.small {
+        font-size: 1.75rem;
+      }
     }
     @media (min-width: $breakpoint2) {
       font-size: 2.25rem;

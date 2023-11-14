@@ -124,7 +124,7 @@ const Booking = () => {
                     src={thisCoworkingSpace.images[0]}
                     alt={thisCoworkingSpace.name}
                   />
-                  <h2 className="darkGray">{thisCoworkingSpace.name}</h2>
+                  <h2 className="darkGray small">{thisCoworkingSpace.name}</h2>
                   <AdressContact
                     email={thisCoworkingSpace.email}
                     adress={thisCoworkingSpace.adress}

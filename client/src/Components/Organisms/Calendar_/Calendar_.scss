@@ -12,7 +12,7 @@
     line-height: 1.125em;
     @media (min-width: $breakpoint) {
       font-size: 1.25rem;
-      max-width: 70%;
+      // max-width: 70%;
 
     }
   }
@@ -117,6 +117,11 @@
     line-height: 16px;
     font: inherit;
     font-size: 0.833em;
+
+    @media (min-width: $breakpoint) {
+      aspect-ratio: 5/4;
+
+    }
   }
   
   .react-calendar__tile:disabled {

@@ -28,8 +28,8 @@
     border-radius: 20px 20px 0px 0px;
 
     @media (min-width: $breakpoint) {
-      width: 80vw;
-      height: 90dvh;
+      width: 1000px;
+      height: auto;
       border-radius: 0 80px;
     }
 
@@ -54,10 +54,7 @@
       flex-grow: 1;
 
       @media (min-width: $breakpoint) {
-        padding-inline: 60px;
-      }
-      @media (min-width: $breakpoint2) {
-        padding-inline: 80px;
+        padding: 10PX 60px 60px 60px;
       }
     }
 
