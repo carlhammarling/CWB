@@ -47,7 +47,36 @@ const useEditBooking = (editBooking: BookedData | undefined) => {
       console.log(err);
     }
   };
-  return { updateBooking, error };
+
+  const deleteBooking = async () => {
+    if (!editBooking) {
+      setError("can not find booking");
+      return;
+    }
+
+    try {
+      const res = await axios.delete(
+        BASE_URL + "/api/booking/" + editBooking._id,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.data) {
+        setError(null);
+        setBookingSuccess(true);
+        setTimeout(() => {
+          navigate("/account");
+          setShowModal(false);
+          setBookingSuccess(false);
+        }, 2000);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  return { updateBooking, deleteBooking, error };
 };
 
 export default useEditBooking;

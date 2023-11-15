@@ -14,7 +14,7 @@ const EditBooking = () => {
   const windowWidth = useWindowSize();
 
   const { editBooking, bookingSuccess  } = useDataContext();
-  const { updateBooking, error } =
+  const { updateBooking, deleteBooking, error } =
     useEditBooking(editBooking);
     
   return (
@@ -42,7 +42,7 @@ const EditBooking = () => {
             <button className="greenButton h2" onClick={updateBooking}>
               Confirm changes
             </button>
-            <button className="redButton h2" onClick={updateBooking}>
+            <button className="redButton h2" onClick={deleteBooking}>
               Cancel booking
             </button>
           </div>
@@ -77,7 +77,7 @@ const EditBooking = () => {
               <button className="greenButton h2" onClick={updateBooking}>
                 Confirm changes
               </button>
-              <button className="redButton h2" onClick={updateBooking}>
+              <button className="redButton h2" onClick={deleteBooking}>
                 Cancel booking
               </button>
             </div>

@@ -67,10 +67,10 @@ exports.postBooking = async (req, res) => {
 };
 
 exports.deleteOneBooking = async (req, res) => {
-  const { _id } = req.body;
+  const { id } = req.params;
 
   try {
-    const data = await Booking.findByIdAndDelete(_id);
+    const data = await Booking.findByIdAndDelete(id);
     if (!data) {
       return res
         .status(404)
@@ -78,7 +78,7 @@ exports.deleteOneBooking = async (req, res) => {
     }
     return res
       .status(200)
-      .json({ message: `Booking with id: ${_id} was deleted` });
+      .json({ message: `Booking with id: ${id} was deleted` });
   } catch (err) {
     res.status(400).json({
       message: "Something went wrong while trying to delete the booking.",
