@@ -2,10 +2,22 @@ import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar_.scss";
 import { useBookingContext } from "../../../Context/BookingContext";
+import { useDataContext } from "../../../Context/DataContext";
 
-const Calendar_ = () => {
+const Calendar_ = ({ editBooking }: CalendarProps) => {
   const { arriveDate, setArriveDate, checkoutDate, setCheckoutDate } =
     useBookingContext();
+
+    useEffect(() => {
+      if(editBooking?.arriveDate && editBooking.checkoutDate) {
+        setArriveDate(editBooking.arriveDate)
+        setCheckoutDate(editBooking.checkoutDate)
+      }
+      else {
+        setArriveDate(null)
+        setCheckoutDate(null)
+      }
+    }, [])
 
   const [value, setValue] = useState<CalenderValue>(new Date());
 

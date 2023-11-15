@@ -14,9 +14,9 @@ import useBooking from "../../../Utils/useBooking";
 const Booking = () => {
   const windowWidth = useWindowSize();
 
-  const { setShowModal } = useDataContext();
+  const { setShowModal, bookingSuccess } = useDataContext();
   const { id } = useParams();
-  const { thisCoworkingSpace, submitBooking, error, bookingSuccess } =
+  const { thisCoworkingSpace, submitBooking, error } =
     useBooking(id);
 
   if (!thisCoworkingSpace) {

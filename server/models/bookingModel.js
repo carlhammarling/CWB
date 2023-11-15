@@ -87,17 +87,18 @@ exports.deleteOneBooking = async (req, res) => {
 };
 
 exports.updateBooking = async (req, res) => {
-  const { _id, paymentMethod, arriveDate, checkoutDate, price } = req.body;
+  
+  const { bookingId, coworkingId, paymentMethod, arriveDate, checkoutDate, price } = req.body;
 
   try {
-    if (!_id || !paymentMethod || !arriveDate || !checkoutDate || !price) {
+    if (!bookingId || !coworkingId || !paymentMethod || !arriveDate || !checkoutDate || !price) {
       return res
         .status(400)
         .json({ message: "You have to fill in all the fields." });
     }
-    const data = Booking.findByIdAndUpdate(
-      _id,
-      { paymentMethod, arriveDate, checkoutDate, price },
+    const data = await Booking.findByIdAndUpdate(
+      bookingId,
+      { coworkingId, paymentMethod, arriveDate, checkoutDate, price },
       { new: true }
     );
     if (!data) {

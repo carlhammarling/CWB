@@ -7,7 +7,7 @@ import useEditBooking from "../../../Utils/useEditBooking";
 import { useBookingContext } from "../../../Context/BookingContext";
 
 const AccountCard = (props: accountCardProps) => {
-  const { setShowModal, setEdit, setEditId } = useDataContext();
+  const { setShowModal, setEdit, setEditBooking } = useDataContext();
   const windowWidth = useWindowSize();
 
 
@@ -18,7 +18,7 @@ const AccountCard = (props: accountCardProps) => {
         <div className="cardTop">
           <h3>{props.booking.coworkingId.name}</h3>
           {props.edit ? (
-            <button onClick={() => {setShowModal(true); setEdit(true); setEditId(props.booking.coworkingId._id);
+            <button onClick={() => {setShowModal(true); setEdit(true); setEditBooking(props.booking);
             }}>
               <i className="fa-solid fa-pen"></i>
             </button>

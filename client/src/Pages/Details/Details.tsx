@@ -10,12 +10,11 @@ import Map from "../../Components/Molecules/Map/Map";
 import useWindowSize from "../../Utils/useWindowSize";
 
 const Details = () => {
-  const { coworkingSpaces, setShowModal } = useDataContext();
+  const { coworkingSpaces, setShowModal, setEdit } = useDataContext();
   const { id } = useParams();
-  const windowWidth = useWindowSize()
+  const windowWidth = useWindowSize();
 
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
-
 
   return (
     <div className="detailsWrapper">
@@ -35,7 +34,10 @@ const Details = () => {
               <div className="buttonWrapper">
                 <button
                   className="greenButton h2"
-                  onClick={() => setShowModal((state) => !state)}
+                  onClick={() => {
+                    setShowModal((state) => !state);
+                    setEdit(false);
+                  }}
                 >
                   Book Now!
                 </button>
@@ -53,7 +55,10 @@ const Details = () => {
                   <Pricing {...thisCoworkingSpace.price} />
                   <button
                     className="greenButton h2"
-                    onClick={() => setShowModal((state) => !state)}
+                    onClick={() => {
+                      setShowModal((state) => !state);
+                      setEdit(false);
+                    }}
                   >
                     Book Now!
                   </button>

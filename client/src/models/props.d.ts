@@ -9,11 +9,13 @@ interface DataContextProps {
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
   edit: boolean;
   setEdit: React.Dispatch<React.SetStateAction<boolean>>;
-  editId: string | undefined,
-  setEditId: React.Dispatch<React.SetStateAction<string | undefined>>;
+  editBooking: BookedData | undefined,
+  setEditBooking: React.Dispatch<React.SetStateAction<BookedData | undefined>>;
   token: string | null;
   setToken: React.Dispatch<React.SetStateAction<string | null>>;
   userData: User | null;
+  bookingSuccess: boolean;
+  setBookingSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 interface BookingContextProps {
   selectedPM: PaymentMethod;
@@ -58,4 +60,8 @@ interface accountCardProps {
 interface AdressContactProps {
   email: string;
   adress: string;
+}
+
+interface CalendarProps {
+  editBooking?: BookedData;
 }

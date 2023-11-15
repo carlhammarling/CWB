@@ -26,7 +26,9 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
-  const [editId, setEditId] = useState<string | undefined>()
+  const [editBooking, setEditBooking] = useState<BookedData>()
+  const [bookingSuccess, setBookingSuccess] = useState<boolean>(false);
+
 
 
   const [token, setToken] = useState<string | null>(null);
@@ -77,8 +79,10 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         userData,
         edit,
         setEdit,
-        editId,
-        setEditId
+        editBooking,
+        setEditBooking,
+        bookingSuccess,
+        setBookingSuccess
       }}
     >
       {children}

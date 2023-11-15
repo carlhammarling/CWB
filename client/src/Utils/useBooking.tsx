@@ -7,12 +7,11 @@ import { useBookingContext } from "../Context/BookingContext";
 const useBooking = (id: string | undefined) => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-  const { setShowModal, coworkingSpaces, token } = useDataContext();
+  const { setShowModal, coworkingSpaces, token, setBookingSuccess } = useDataContext();
   const { selectedPM, arriveDate, checkoutDate, price } = useBookingContext();
   const navigate = useNavigate();
 
   const [error, setError] = useState<string | null>(null);
-  const [bookingSuccess, setBookingSuccess] = useState<boolean>(false);
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
 
   const submitBooking = async () => {
@@ -29,7 +28,6 @@ const useBooking = (id: string | undefined) => {
     };
 
     try {
-      console.log(bookingData);
       const res = await axios.post(BASE_URL + "/api/booking", bookingData, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -48,7 +46,7 @@ const useBooking = (id: string | undefined) => {
       console.log(err);
     }
   };
-  return { thisCoworkingSpace, submitBooking, error, bookingSuccess };
+  return { thisCoworkingSpace, submitBooking, error };
 };
 
 export default useBooking;

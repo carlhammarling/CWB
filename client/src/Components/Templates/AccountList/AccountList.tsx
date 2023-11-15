@@ -4,10 +4,11 @@ import { useDataContext } from "../../../Context/DataContext";
 import axios from "axios";
 import AccountCard from "../../Organisms/AccountCard/AccountCard";
 import { ClipLoader } from "react-spinners";
+import useEditBooking from "../../../Utils/useEditBooking";
 
 const AccountList = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
-  const { token } = useDataContext();
+  const { token, bookingSuccess  } = useDataContext();
   const [userBookings, setUserBookings] = useState<BookedData[]>([]);
   const [upComingBookings, setUpComingBookings] = useState<BookedData[]>([]);
   const [oldBookings, setOldBookings] = useState<BookedData[]>([]);
@@ -30,8 +31,10 @@ const AccountList = () => {
         console.log(err);
       }
     };
-    getBookings();
-  }, [token]);
+    if(bookingSuccess || token) {
+      getBookings();
+    }
+  }, [token, bookingSuccess] );
 
   useEffect(() => {
     const now = new Date();

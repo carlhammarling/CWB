@@ -30,7 +30,6 @@ const Modal = () => {
             {edit ? (
               userData ? (
                 <EditBooking />
-                // <h1>Hej</h1>
               ) : (
                 <LoginRegister />
               )

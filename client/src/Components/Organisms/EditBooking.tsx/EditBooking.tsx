@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDataContext } from "../../../Context/DataContext";
-import { useParams } from "react-router-dom";
 import "./EditBooking.scss";
 import PaymentMethod from "../../Molecules/PaymentMethod/PaymentMethod";
 import Calendar_ from "../Calendar_/Calendar_";
@@ -9,43 +8,41 @@ import BookingPrice from "../../Molecules/BookingPrice/BookingPrice";
 import AdressContact from "../../Molecules/AdressContact/AdressContact";
 import useWindowSize from "../../../Utils/useWindowSize";
 import BookingSuccess from "../../Atoms/BookingSucess/BookingSuccess";
-import useBooking from "../../../Utils/useBooking";
 import useEditBooking from "../../../Utils/useEditBooking";
-import { useBookingContext } from "../../../Context/BookingContext";
 
 const EditBooking = () => {
   const windowWidth = useWindowSize();
 
-  const { setShowModal, editId } = useDataContext();
-  const { thisCoworkingSpace, submitBooking, error, bookingSuccess } =
-    useEditBooking(editId);
-
+  const { editBooking, bookingSuccess  } = useDataContext();
+  const { updateBooking, error } =
+    useEditBooking(editBooking);
+    
   return (
     <div className="editBooking">
       {windowWidth <= 1000 ? (
         //Mobile
-        thisCoworkingSpace && !bookingSuccess ? (
+        editBooking && !bookingSuccess ? (
           <div className="bookingContent">
-            <h1>Choose dates</h1>
+            <h1>Edit dates</h1>
             <img
               className="coworkImg"
-              src={thisCoworkingSpace.images[0]}
-              alt={thisCoworkingSpace.name}
+              src={editBooking.coworkingId.images[0]}
+              alt={editBooking.coworkingId.name}
             />
-            <h2 className="darkGray">{thisCoworkingSpace.name}</h2>
+            <h2 className="darkGray">{editBooking.coworkingId.name}</h2>
             <AdressContact
-              email={thisCoworkingSpace.email}
-              adress={thisCoworkingSpace.adress}
+              email={editBooking.coworkingId.email}
+              adress={editBooking.coworkingId.adress}
             />
-            <FacilityTextAtomRow facilities={thisCoworkingSpace.facilities} />
-            <Calendar_ />
-            <BookingPrice {...thisCoworkingSpace} />
+            <FacilityTextAtomRow facilities={editBooking.coworkingId.facilities} />
+            <Calendar_ editBooking={editBooking} />
+            <BookingPrice {...editBooking.coworkingId} />
             <PaymentMethod />
             {error && <p>{error}</p>}
-            <button className="greenButton h2" onClick={submitBooking}>
+            <button className="greenButton h2" onClick={updateBooking}>
               Confirm changes
             </button>
-            <button className="redButton h2" onClick={submitBooking}>
+            <button className="redButton h2" onClick={updateBooking}>
               Cancel booking
             </button>
           </div>
@@ -53,10 +50,10 @@ const EditBooking = () => {
           <BookingSuccess />
         )
       ) : // Desktop
-      thisCoworkingSpace && !bookingSuccess ? (
+      editBooking && !bookingSuccess ? (
         <div className="bookingContent">
           <div className="bookingCol">
-            <h1 className="small">Choose dates</h1>
+            <h1 className="small">Edit dates</h1>
             <Calendar_ />
             <PaymentMethod />
           </div>
@@ -64,23 +61,23 @@ const EditBooking = () => {
             <div className="colTop">
               <img
                 className="coworkImg"
-                src={thisCoworkingSpace.images[0]}
-                alt={thisCoworkingSpace.name}
+                src={editBooking.coworkingId.images[0]}
+                alt={editBooking.coworkingId.name}
               />
-              <h2 className="darkGray small">{thisCoworkingSpace.name}</h2>
+              <h2 className="darkGray small">{editBooking.coworkingId.name}</h2>
               <AdressContact
-                email={thisCoworkingSpace.email}
-                adress={thisCoworkingSpace.adress}
+                email={editBooking.coworkingId.email}
+                adress={editBooking.coworkingId.adress}
               />
-              <FacilityTextAtomRow facilities={thisCoworkingSpace.facilities} />
+              <FacilityTextAtomRow facilities={editBooking.coworkingId.facilities} />
             </div>
             <div className="colBottom">
-              <BookingPrice {...thisCoworkingSpace} />
+              <BookingPrice {...editBooking.coworkingId} />
               {error && <p>{error}</p>}
-              <button className="greenButton h2" onClick={submitBooking}>
+              <button className="greenButton h2" onClick={updateBooking}>
                 Confirm changes
               </button>
-              <button className="redButton h2" onClick={submitBooking}>
+              <button className="redButton h2" onClick={updateBooking}>
                 Cancel booking
               </button>
             </div>
