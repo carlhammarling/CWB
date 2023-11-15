@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Modal.scss";
 import { useDataContext } from "../../../Context/DataContext";
-import LoginRegister from "../../Organisms/LoginRegister/LoginRegister";
-import Booking from "../../Organisms/Booking/Booking";
+import LoginRegister from "../LoginRegister/LoginRegister";
+import Booking from "../Booking/Booking";
 import { BookingProvider } from "../../../Context/BookingContext";
-import EditBooking from "../../Organisms/EditBooking.tsx/EditBooking";
+import EditBooking from "../EditBooking.tsx/EditBooking";
 
 const Modal = () => {
   const { setShowModal, userData, edit } = useDataContext();
-
 
   return (
     <div

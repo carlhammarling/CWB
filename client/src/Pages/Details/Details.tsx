@@ -33,7 +33,7 @@ const Details = () => {
               <Map coordinates={thisCoworkingSpace.coordinates} />
               <div className="buttonWrapper">
                 <button
-                  className="greenButton h2"
+                  className="bigButton greenButton h2"
                   onClick={() => {
                     setShowModal((state) => !state);
                     setEdit(false);
@@ -54,7 +54,7 @@ const Details = () => {
                 <div className="detailsDesktopRight">
                   <Pricing {...thisCoworkingSpace.price} />
                   <button
-                    className="greenButton h2"
+                    className="bigButton greenButton h2"
                     onClick={() => {
                       setShowModal((state) => !state);
                       setEdit(false);

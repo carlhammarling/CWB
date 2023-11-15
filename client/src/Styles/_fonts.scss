@@ -229,25 +229,5 @@
     }
   }
 
-  .greenButton {
-    @include mixins.bigButton;
-    background-color: $green;
-  }
-  .redButton {
-    @include mixins.bigButton;
-    background-color: $red;
-  }
-  .invisibleButton {
-    @include mixins.invisibleButton;
-  }
-  .text-center {
-    text-align: center;
-  }
-
-  .underline {
-    text-decoration: underline;
-  }
-  .pointer {
-    cursor: pointer;
-  }
+  
 }

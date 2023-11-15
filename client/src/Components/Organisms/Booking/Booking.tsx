@@ -48,7 +48,7 @@ const Booking = () => {
             <BookingPrice {...thisCoworkingSpace} />
             <PaymentMethod />
             {error && <p>{error}</p>}
-            <button className="greenButton h2" onClick={submitBooking}>
+            <button className="bigButton greenButton h2" onClick={submitBooking}>
               Book now!
             </button>
           </div>
@@ -89,7 +89,7 @@ const Booking = () => {
             <div className="colBottom">
               <BookingPrice {...thisCoworkingSpace} />
               {error && <p>{error}</p>}
-              <button className="greenButton h2" onClick={submitBooking}>
+              <button className="bigButton greenButton h2" onClick={submitBooking}>
                 Book now!
               </button>
             </div>

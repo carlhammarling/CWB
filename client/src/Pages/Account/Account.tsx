@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import AccountList from "../../Components/Templates/AccountList/AccountList";
+import AccountList from "../../Components/Organisms/AccountList/AccountList";
 import { useDataContext } from "../../Context/DataContext";
 import "./Account.scss";
 

@@ -12,11 +12,11 @@ import useEditBooking from "../../../Utils/useEditBooking";
 
 const EditBooking = () => {
   const windowWidth = useWindowSize();
+  const [confirmCancel, setConfirmCancel] = useState(false);
 
-  const { editBooking, bookingSuccess  } = useDataContext();
-  const { updateBooking, deleteBooking, error } =
-    useEditBooking(editBooking);
-    
+  const { editBooking, bookingSuccess } = useDataContext();
+  const { updateBooking, deleteBooking, error } = useEditBooking(editBooking);
+
   return (
     <div className="editBooking">
       {windowWidth <= 1000 ? (
@@ -34,7 +34,9 @@ const EditBooking = () => {
               email={editBooking.coworkingId.email}
               adress={editBooking.coworkingId.adress}
             />
-            <FacilityTextAtomRow facilities={editBooking.coworkingId.facilities} />
+            <FacilityTextAtomRow
+              facilities={editBooking.coworkingId.facilities}
+            />
             <Calendar_ editBooking={editBooking} />
             <BookingPrice {...editBooking.coworkingId} />
             <PaymentMethod />
@@ -42,9 +44,15 @@ const EditBooking = () => {
             <button className="greenButton h2" onClick={updateBooking}>
               Confirm changes
             </button>
-            <button className="redButton h2" onClick={deleteBooking}>
-              Cancel booking
-            </button>
+            {confirmCancel ? (
+              <button className="bigButton redButton h2" onClick={() => {deleteBooking(); setTimeout(() => setConfirmCancel(false), 1000) }}>
+                Confirm cancel
+              </button>
+            ) : (
+              <button className="bigButton redButton h2" onClick={() => setConfirmCancel(true)}>
+                Cancel booking
+              </button>
+            )}
           </div>
         ) : (
           <BookingSuccess />
@@ -54,7 +62,7 @@ const EditBooking = () => {
         <div className="bookingContent">
           <div className="bookingCol">
             <h1 className="small">Edit dates</h1>
-            <Calendar_ />
+            <Calendar_ editBooking={editBooking} />
             <PaymentMethod />
           </div>
           <div className="bookingCol">
@@ -69,7 +77,9 @@ const EditBooking = () => {
                 email={editBooking.coworkingId.email}
                 adress={editBooking.coworkingId.adress}
               />
-              <FacilityTextAtomRow facilities={editBooking.coworkingId.facilities} />
+              <FacilityTextAtomRow
+                facilities={editBooking.coworkingId.facilities}
+              />
             </div>
             <div className="colBottom">
               <BookingPrice {...editBooking.coworkingId} />
@@ -77,9 +87,15 @@ const EditBooking = () => {
               <button className="greenButton h2" onClick={updateBooking}>
                 Confirm changes
               </button>
-              <button className="redButton h2" onClick={deleteBooking}>
+              {confirmCancel ? (
+              <button className="redButton h2" onClick={() => {deleteBooking(); setTimeout(() => setConfirmCancel(false), 1000) }}>
+                Confirm cancel
+              </button>
+            ) : (
+              <button className="redButton h2" onClick={() => setConfirmCancel(true)}>
                 Cancel booking
               </button>
+            )}
             </div>
           </div>
         </div>
