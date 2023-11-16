@@ -5,8 +5,9 @@ import "./Account.scss";
 import { useEffect, useState } from "react";
 
 const Account = () => {
-  const { userData } = useDataContext();
+  const { userData, bookingSuccess } = useDataContext();
   const navigate = useNavigate();
+  const [fade, setFade] = useState('')
 
   useEffect(() => {
     if (!userData) {
@@ -14,8 +15,14 @@ const Account = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if(bookingSuccess) {
+      setFade('fadeIn')
+    }
+  }, [bookingSuccess])
+
   return (
-    <div className="account fadeIn">
+    <div className={`account ${fade}`}>
       <div className="accountHeaderWrapper">
         <div className="accountHeader">
           <div className="accountLogo">
