@@ -1,17 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import AccountList from "../../Components/Organisms/AccountList/AccountList";
-import { useDataContext } from "../../Context/DataContext";
+import AccountList from "../../components/organisms/AccountList/AccountList";
+import { useDataContext } from "../../contexts/DataContext";
 import "./Account.scss";
+import { useEffect, useState } from "react";
 
 const Account = () => {
   const { userData } = useDataContext();
   const navigate = useNavigate();
 
-  if (!userData) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!userData) {
+      navigate("/");
+    }
+  }, []);
+
   return (
-    <div className="account">
+    <div className="account fadeIn">
       <div className="accountHeaderWrapper">
         <div className="accountHeader">
           <div className="accountLogo">

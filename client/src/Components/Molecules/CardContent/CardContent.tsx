@@ -1,7 +1,7 @@
 import React from "react";
 import "./CardContent.scss";
 import ActivityAtomRow from "../FacilityAtomRow/FacilityAtomRow";
-import CardPrice from "../../Atoms/CardPrice/CardPrice";
+import CardPrice from "../../atoms/CardPrice/CardPrice";
 
 const CardContent = (coworkingSpace: CoworkingSpace) => {
   return (

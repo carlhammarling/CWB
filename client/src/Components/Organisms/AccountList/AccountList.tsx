@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./AccountList.scss";
-import { useDataContext } from "../../../Context/DataContext";
+import { useDataContext } from "../../../contexts/DataContext";
 import axios from "axios";
 import AccountCard from "../AccountCard/AccountCard";
 import { ClipLoader } from "react-spinners";
-import useEditBooking from "../../../Utils/useEditBooking";
+import useEditBooking from "../../../utils/useEditBooking";
 
 const AccountList = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -66,7 +66,11 @@ const AccountList = () => {
   }, [userBookings]);
 
   if (upComingBookings.length < 1 && oldBookings.length < 1) {
-    return <div className="clipLoader"><ClipLoader /></div>;
+    return (
+      <div className="clipLoader">
+        <ClipLoader />
+      </div>
+    );
   }
 
   return (

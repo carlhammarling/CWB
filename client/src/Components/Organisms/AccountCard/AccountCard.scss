@@ -42,6 +42,13 @@
       align-items: flex-start;
       border-bottom: 1px solid $lineGray;
       flex-grow: 1;
+      padding-bottom: $space-x-1;
+
+      .cardTopinfo {
+        display: flex;
+        flex-direction: column;
+        gap: $space-x-1;
+      }
 
       button {
         border: 0;
@@ -62,7 +69,7 @@
     }
 
     p.description {
-      margin-block: 2rem;
+      margin-block: $space-x-1;
     }
 
     .cardBottom {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.scss";
-import TransparentBanner from "../../Molecules/TransparentBanner/TransparentBanner";
+import TransparentBanner from "../../molecules/TransparentBanner/TransparentBanner";
 
 const Hero = () => {
   return (

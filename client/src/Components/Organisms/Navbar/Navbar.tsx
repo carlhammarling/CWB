@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.scss";
 import { NavLink } from "react-router-dom";
-import { useDataContext } from "../../../Context/DataContext";
+import { useDataContext } from "../../../contexts/DataContext";
 import { log } from "console";
 
 const Navbar = () => {

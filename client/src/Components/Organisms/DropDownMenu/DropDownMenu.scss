@@ -1,3 +1,5 @@
+@use '../../../Styles/mixins';
+@include mixins.modalFade;
 @import "../../../Styles/variables";
 
 .dropdownWrapper {
@@ -13,6 +15,13 @@
 
   z-index: 3;
 
+  &.fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  &.fadeOut {
+    animation: fadeOut 0.3s ease-in-out;
+  }
+
   .dropdown {
     position: relative;
     display: flex;
@@ -21,6 +30,13 @@
     width: 100vw;
     background-color: $white;
     border-radius: 20px 20px 0px 0px;
+
+    &.fadeIn {
+      animation: fadeUp 0.3s ease-in-out;
+    }
+    &.fadeOut {
+      animation: fadeDown 0.3s ease-in-out;
+    }
 
     .dropdownHeader {
       display: flex;

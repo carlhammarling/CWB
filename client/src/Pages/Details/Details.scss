@@ -1,6 +1,12 @@
+@use '../../Styles/mixins';
+@include mixins.modalFade;
 @import "../../Styles/variables";
 
 .detailsWrapper {
+
+  &.fadeOut {
+    animation: fadeOut .5s ease-in-out;
+  }
 
   .details {
     display: flex;

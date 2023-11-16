@@ -28,9 +28,6 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editBooking, setEditBooking] = useState<BookedData>()
   const [bookingSuccess, setBookingSuccess] = useState<boolean>(false);
-
-
-
   const [token, setToken] = useState<string | null>(null);
   const [userData, setUserData] = useState<User | null>(null);
 
@@ -52,6 +49,23 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     }
   };
 
+  const expiredToken = (res: any) => {
+    if(res.status === 401) {
+      setToken(null);
+    }
+  };
+
+  useEffect(() => {
+    axios.interceptors.response.use(res => res, error => {
+      if(error.response) {
+        expiredToken(error.response);
+      }
+      else {
+        Promise.reject(error);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     if (typeof token == "string") {
       localStorage.setItem("token", token);
@@ -64,6 +78,8 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     const savedToken = localStorage.getItem("token");
     setToken(savedToken);
   }, []);
+
+ 
 
   return (
     <DataContext.Provider

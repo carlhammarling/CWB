@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDataContext } from "../Context/DataContext";
-import { useBookingContext } from "../Context/BookingContext";
+import { useDataContext } from "../contexts/DataContext";
+import { useBookingContext } from "../contexts/BookingContext";
 
 const useEditBooking = (editBooking: BookedData | undefined) => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;

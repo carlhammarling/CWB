@@ -1,6 +1,7 @@
 import React from "react";
 
 const BookingSuccess = () => {
+  
   return (
     <div className="bookingSuccess">
       <h1>

@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./DropDownMenu.scss";
-import { useDataContext } from "../../../Context/DataContext";
+import { useDataContext } from "../../../contexts/DataContext";
 const DropDownMenu = () => {
   const { setShowMenu, userData, setToken, setShowModal } = useDataContext();
+  const [fade, setFade] = useState('fadeIn');
 
   const logOut = () => {
     setToken(null);
     localStorage.removeItem("token");
   };
 
+  const fadeClose = () => {
+    setFade('fadeOut')
+    setTimeout(() => {setShowMenu((state) => !state); setFade('fadeIn')}, 300);
+  }
+
   return (
     <div
-      className="dropdownWrapper"
+      className={`dropdownWrapper ${fade}`}
       onClick={() => setShowMenu((state) => !state)}
     >
-      <div className="dropdown" onClick={(e) => e.stopPropagation()}>
+      <div className={`dropdown ${fade}`} onClick={(e) => e.stopPropagation()}>
         <div className="dropdownHeader">
           <button
             className="invisibleButton"
-            onClick={() => setShowMenu((state) => !state)}
+            onClick={fadeClose}
           >
             <i className="fa-solid fa-xmark"></i>
           </button>
@@ -28,7 +34,7 @@ const DropDownMenu = () => {
           <nav className="menu">
             <ul>
               <li>
-                <NavLink to="/" onClick={() => setShowMenu(false)}>
+                <NavLink to="/" onClick={fadeClose}>
                   <div>
                     <i className="fa-solid fa-house fa-xs"></i>
                   </div>
@@ -38,7 +44,7 @@ const DropDownMenu = () => {
               {userData ? (
                 <>
                   <li>
-                    <NavLink to="/account" onClick={() => setShowMenu(false)}>
+                    <NavLink to="/account" onClick={fadeClose}>
                       <div>
                         <i className="fa-solid fa-user fa-xs"></i>
                       </div>
@@ -48,7 +54,7 @@ const DropDownMenu = () => {
                   <li
                     className="menuButton"
                     onClick={() => {
-                      setShowMenu(false);
+                      fadeClose();
                       logOut();
                     }}
                   >

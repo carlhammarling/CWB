@@ -1,4 +1,4 @@
-export const DateConverter = (dateString: Date) => {
+export const dateConverter = (dateString: Date) => {
     const date = new Date(dateString);
 
     return date.toLocaleDateString('en-GB', {

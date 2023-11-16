@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./Details.scss";
-import { useDataContext } from "../../Context/DataContext";
+import { useDataContext } from "../../contexts/DataContext";
 import { useParams } from "react-router-dom";
-import DetailsImageContainer from "../../Components/Organisms/DetailsImageContainer/DetailsImageContainer";
-import DetailsContent from "../../Components/Organisms/DetailsContent/DetailsContent";
-import Pricing from "../../Components/Molecules/Pricing/Pricing";
-import Reviews from "../../Components/Molecules/Reviews/Reviews";
-import Map from "../../Components/Molecules/Map/Map";
-import useWindowSize from "../../Utils/useWindowSize";
+import DetailsImageContainer from "../../components/organisms/DetailsImageContainer/DetailsImageContainer";
+import DetailsContent from "../../components/organisms/DetailsContent/DetailsContent";
+import Pricing from "../../components/molecules/Pricing/Pricing";
+import Reviews from "../../components/molecules/Reviews/Reviews";
+import Map from "../../components/molecules/Map/Map";
+import useWindowSize from "../../utils/useWindowSize";
 
 const Details = () => {
-  const { coworkingSpaces, setShowModal, setEdit } = useDataContext();
+  const { coworkingSpaces, setShowModal, setEdit, bookingSuccess } = useDataContext();
   const { id } = useParams();
   const windowWidth = useWindowSize();
 
   const thisCoworkingSpace = coworkingSpaces?.find((space) => space._id === id);
 
+  const [fade, setFade] = useState('')
+
+  useEffect(() => {
+    if(bookingSuccess === true) {
+      const timer = setTimeout(() => setFade('fadeOut'), 100)
+      return () => clearTimeout(timer);
+    }
+  }, [bookingSuccess]);
+
   return (
-    <div className="detailsWrapper">
+    <div className={`detailsWrapper ${fade}`}>
       {thisCoworkingSpace && (
         <div>
           {windowWidth <= 1000 ? (

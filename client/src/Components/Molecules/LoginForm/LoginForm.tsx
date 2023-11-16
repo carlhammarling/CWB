@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useDataContext } from "../../../Context/DataContext";
+import { useDataContext } from "../../../contexts/DataContext";
 
 const LoginForm = ({ togglePage }: LoginFormProps) => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -35,9 +35,9 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
       setToken(res.data);
     } catch (err) {
       if (axios.isAxiosError(err)) {
-          setError(err.response?.data.message);
-          console.log(err);
-          return;
+        setError(err.response?.data.message);
+        console.log(err);
+        return;
       }
       setError("Unknown error");
       console.log(err);
@@ -74,9 +74,7 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
         </p>
         <p>{error}</p>
       </div>
-        <button className="greenButton h2">
-          Login
-        </button>
+      <button className="greenButton h2">Login</button>
     </form>
   );
 };

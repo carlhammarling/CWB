@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.scss";
-import FacilityAtomRow from "../../Molecules/FacilityAtomRow/FacilityAtomRow";
+import FacilityAtomRow from "../../molecules/FacilityAtomRow/FacilityAtomRow";
 
 const Footer = () => {
   return (

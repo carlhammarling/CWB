@@ -1,16 +1,15 @@
-import { useBookingContext } from '../../../Context/BookingContext';
-import './PaymentMethod.scss'
+import { useBookingContext } from "../../../contexts/BookingContext";
+import "./PaymentMethod.scss";
 
 const PaymentMethod = () => {
-
   const { selectedPM, setSelectedPM } = useBookingContext();
 
   return (
-    <div className='paymentMethod'>
+    <div className="paymentMethod">
       <h2 className="darkGray small">
         Choose payment method <i className="fa-solid fa-credit-card fa-sm"></i>
       </h2>
-      
+
       <div className="paymentSelect">
         <img
           className={`paymentImg ${selectedPM === "paypal" ? "active" : ""}`}

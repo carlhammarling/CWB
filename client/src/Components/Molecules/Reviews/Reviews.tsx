@@ -1,6 +1,6 @@
 import React from "react";
 import "./Reviews.scss";
-import DetailsRating from "../../Atoms/DetailsRating/DetailsRating";
+import DetailsRating from "../../atoms/DetailsRating/DetailsRating";
 
 const Reviews = (props: ReviewProps) => {
   return (
@@ -13,7 +13,7 @@ const Reviews = (props: ReviewProps) => {
       </div>
       {props.reviews.map((review) => (
         <div className="oneReview" key={review._id}>
-          <DetailsRating rating={review.rating}/>
+          <DetailsRating rating={review.rating} />
           <p className="lightGray italic">"{review.message}"</p>
         </div>
       ))}

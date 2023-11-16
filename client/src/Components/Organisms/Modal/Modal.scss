@@ -1,4 +1,9 @@
+
+@use '../../../Styles/mixins';
+@include mixins.modalFade;
 @import "../../../Styles/variables";
+
+
 
 .modalWrapper {
   position: fixed;
@@ -12,6 +17,13 @@
   backdrop-filter: blur(3px);
 
   z-index: 3;
+
+  &.fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  &.fadeOut {
+    animation: fadeOut 0.3s ease-in-out;
+  }
 
   @media (min-width: $breakpoint) {
     display: grid;
@@ -27,9 +39,18 @@
     background-color: $white;
     border-radius: 20px 20px 0px 0px;
 
+
+    &.fadeIn {
+      animation: fadeUp 0.3s ease-in-out;
+    }
+    &.fadeOut {
+      animation: fadeDown 0.3s ease-in-out;
+    }
+
     @media (min-width: $breakpoint) {
       width: 1000px;
       height: auto;
+      min-height: 70vh;
       border-radius: 0 80px;
     }
 
@@ -52,6 +73,7 @@
       padding: $space-x-1;
       overflow-y: auto;
       flex-grow: 1;
+
 
       @media (min-width: $breakpoint) {
         padding: 10PX 60px 60px 60px;

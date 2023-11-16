@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../../Components/Organisms/Navbar/Navbar";
-import Footer from "../../Components/Organisms/Footer/Footer";
+import Navbar from "../../components/organisms/Navbar/Navbar";
+import Footer from "../../components/organisms/Footer/Footer";
 import "./RootLayout.scss";
-import Modal from "../../Components/Organisms/Modal/Modal";
-import { useDataContext } from "../../Context/DataContext";
-import DropDownMenu from "../../Components/Organisms/DropDownMenu/DropDownMenu";
+import Modal from "../../components/organisms/Modal/Modal";
+import { useDataContext } from "../../contexts/DataContext";
+import DropDownMenu from "../../components/organisms/DropDownMenu/DropDownMenu";
 
 const RootLayout = () => {
   const { showModal, showMenu } = useDataContext();

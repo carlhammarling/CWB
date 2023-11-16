@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDataContext } from "../Context/DataContext";
-import { useBookingContext } from "../Context/BookingContext";
+import { useDataContext } from "../contexts/DataContext";
+import { useBookingContext } from "../contexts/BookingContext";
 
 const useBooking = (id: string | undefined) => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-  const { setShowModal, coworkingSpaces, token, setBookingSuccess } = useDataContext();
+  const { setShowModal, coworkingSpaces, token, setBookingSuccess } =
+    useDataContext();
   const { selectedPM, arriveDate, checkoutDate, price } = useBookingContext();
   const navigate = useNavigate();
 
@@ -38,6 +39,8 @@ const useBooking = (id: string | undefined) => {
         setBookingSuccess(true);
         setTimeout(() => {
           navigate("/account");
+        }, 500);
+        setTimeout(() => {
           setShowModal(false);
           setBookingSuccess(false);
         }, 2000);

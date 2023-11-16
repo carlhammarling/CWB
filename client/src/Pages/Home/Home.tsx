@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
-import Hero from "../../Components/Organisms/Hero/Hero";
-import CoffeeDivider from "../../Components/Atoms/CoffeeDivider/CoffeeDivider";
-import TuktukDivider from "../../Components/Organisms/TuktukDivider/TuktukDivider";
-import CardWrapper from "../../Components/Organisms/CardWrapper/CardWrapper";
-import { useDataContext } from "../../Context/DataContext";
+import Hero from "../../components/organisms/Hero/Hero";
+import CoffeeDivider from "../../components/atoms/CoffeeDivider/CoffeeDivider";
+import TuktukDivider from "../../components/organisms/TuktukDivider/TuktukDivider";
+import CardWrapper from "../../components/organisms/CardWrapper/CardWrapper";
+import { useDataContext } from "../../contexts/DataContext";
 import { ClipLoader } from "react-spinners";
-import { arraySlicer } from "../../Utils/ArraySlicer";
+import { arraySlicer } from "../../utils/arraySlicer";
 
 const Home = () => {
   const { coworkingSpaces } = useDataContext();
+
+  useEffect(() => {
+    console.log(coworkingSpaces?.map(space => space.facilities));
+}, [coworkingSpaces]);
 
   if (!coworkingSpaces)
     return (
@@ -20,6 +24,8 @@ const Home = () => {
         </div>
       </div>
     );
+
+    
 
   const dividedCoworkingSpaces: CoworkingSpace[][] = arraySlicer(
     coworkingSpaces,

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useDataContext } from "../../../Context/DataContext";
+import { useDataContext } from "../../../contexts/DataContext";
 import "./EditBooking.scss";
-import PaymentMethod from "../../Molecules/PaymentMethod/PaymentMethod";
+import PaymentMethod from "../../molecules/PaymentMethod/PaymentMethod";
 import Calendar_ from "../Calendar_/Calendar_";
-import FacilityTextAtomRow from "../../Molecules/FacilityTextAtomRow/FacilityTextAtomRow";
-import BookingPrice from "../../Molecules/BookingPrice/BookingPrice";
-import AdressContact from "../../Molecules/AdressContact/AdressContact";
-import useWindowSize from "../../../Utils/useWindowSize";
-import BookingSuccess from "../../Atoms/BookingSucess/BookingSuccess";
-import useEditBooking from "../../../Utils/useEditBooking";
+import FacilityTextAtomRow from "../../molecules/FacilityTextAtomRow/FacilityTextAtomRow";
+import BookingPrice from "../../molecules/BookingPrice/BookingPrice";
+import AdressContact from "../../molecules/AdressContact/AdressContact";
+import useWindowSize from "../../../utils/useWindowSize";
+import BookingSuccess from "../../atoms/BookingSucess/BookingSuccess";
+import useEditBooking from "../../../utils/useEditBooking";
 
 const EditBooking = () => {
   const windowWidth = useWindowSize();
@@ -45,11 +45,20 @@ const EditBooking = () => {
               Confirm changes
             </button>
             {confirmCancel ? (
-              <button className="bigButton redButton h2" onClick={() => {deleteBooking(); setTimeout(() => setConfirmCancel(false), 1000) }}>
+              <button
+                className="bigButton redButton h2"
+                onClick={() => {
+                  deleteBooking();
+                  setTimeout(() => setConfirmCancel(false), 1000);
+                }}
+              >
                 Confirm cancel
               </button>
             ) : (
-              <button className="bigButton redButton h2" onClick={() => setConfirmCancel(true)}>
+              <button
+                className="bigButton redButton h2"
+                onClick={() => setConfirmCancel(true)}
+              >
                 Cancel booking
               </button>
             )}
@@ -88,14 +97,23 @@ const EditBooking = () => {
                 Confirm changes
               </button>
               {confirmCancel ? (
-              <button className="redButton h2" onClick={() => {deleteBooking(); setTimeout(() => setConfirmCancel(false), 1000) }}>
-                Confirm cancel
-              </button>
-            ) : (
-              <button className="redButton h2" onClick={() => setConfirmCancel(true)}>
-                Cancel booking
-              </button>
-            )}
+                <button
+                  className="redButton h2"
+                  onClick={() => {
+                    deleteBooking();
+                    setTimeout(() => setConfirmCancel(false), 1000);
+                  }}
+                >
+                  Confirm cancel
+                </button>
+              ) : (
+                <button
+                  className="redButton h2"
+                  onClick={() => setConfirmCancel(true)}
+                >
+                  Cancel booking
+                </button>
+              )}
             </div>
           </div>
         </div>

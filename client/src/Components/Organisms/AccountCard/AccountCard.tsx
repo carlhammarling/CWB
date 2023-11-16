@@ -1,25 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { DateConverter } from "../../../Utils/DateConverter";
+import { dateConverter } from "../../../utils/dateConverter";
 import "./AccountCard.scss";
-import { useDataContext } from "../../../Context/DataContext";
-import useWindowSize from "../../../Utils/useWindowSize";
-import useEditBooking from "../../../Utils/useEditBooking";
-import { useBookingContext } from "../../../Context/BookingContext";
+import { useDataContext } from "../../../contexts/DataContext";
+import useWindowSize from "../../../utils/useWindowSize";
+import AdressContact from "../../molecules/AdressContact/AdressContact";
+import FacilityTextAtomRow from "../../molecules/FacilityTextAtomRow/FacilityTextAtomRow";
 
 const AccountCard = (props: accountCardProps) => {
   const { setShowModal, setEdit, setEditBooking } = useDataContext();
   const windowWidth = useWindowSize();
-
 
   return (
     <div className={`accountCard ${!props.edit ? "oldBooking" : ""}`}>
       <img src={props.booking.coworkingId.images[0]} alt="" />
       <div className="cardInfo">
         <div className="cardTop">
-          <h3>{props.booking.coworkingId.name}</h3>
+          <div className="cardTopinfo">
+            <h3>{props.booking.coworkingId.name}</h3>
+            {windowWidth >= 1000 && (
+              <>
+              <AdressContact
+                email={props.booking.coworkingId.email}
+                adress={props.booking.coworkingId.adress}
+              />
+              <FacilityTextAtomRow facilities={props.booking.coworkingId.facilities} />
+              </>
+            )}
+          </div>
           {props.edit ? (
-            <button onClick={() => {setShowModal(true); setEdit(true); setEditBooking(props.booking);
-            }}>
+            <button
+              onClick={() => {
+                setShowModal(true);
+                setEdit(true);
+                setEditBooking(props.booking);
+              }}
+            >
               <i className="fa-solid fa-pen"></i>
             </button>
           ) : (
@@ -29,22 +44,26 @@ const AccountCard = (props: accountCardProps) => {
         {windowWidth <= 1000 ? (
           <div className="cardBottom">
             <p className="xs">
-              {DateConverter(props.booking.arriveDate)} -{" "}
-              {DateConverter(props.booking.checkoutDate)}
+              {dateConverter(props.booking.arriveDate)} -{" "}
+              {dateConverter(props.booking.checkoutDate)}
             </p>
             <p className="xs">{props.booking.price} THB</p>
           </div>
         ) : (
           <div>
-            <p className="description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              dolor, soluta consectetur repellat praesentium odio eaque porro,
-              nihil accusamus libero aspernatur.
-            </p>
+            {props.booking.coworkingId.description.length > 130 ? (
+              <p className="description">
+                {props.booking.coworkingId.description.slice(0, 130)}...
+              </p>
+            ) : (
+              <p className="description">
+                {props.booking.coworkingId.description}
+              </p>
+            )}
             <div className="cardBottom">
               <p className="bold">
-                {DateConverter(props.booking.arriveDate)} -{" "}
-                {DateConverter(props.booking.checkoutDate)}
+                {dateConverter(props.booking.arriveDate)} -{" "}
+                {dateConverter(props.booking.checkoutDate)}
               </p>
               <p className="bold">{props.booking.price} THB</p>
             </div>

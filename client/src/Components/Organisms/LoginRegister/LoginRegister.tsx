@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginRegister.scss";
-import LoginForm from "../../Molecules/LoginForm/LoginForm";
-import RegisterForm from "../../Molecules/RegisterForm/RegisterForm";
+import LoginForm from "../../molecules/LoginForm/LoginForm";
+import RegisterForm from "../../molecules/RegisterForm/RegisterForm";
 
 const LoginRegister = () => {
   const [toggler, setToggler] = useState<boolean>(true);
