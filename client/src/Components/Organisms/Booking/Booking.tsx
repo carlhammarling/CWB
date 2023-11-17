@@ -54,7 +54,7 @@ const Booking = () => {
             </button>
           </div>
         ) : (
-          <BookingSuccess />
+          <BookingSuccess type={"booking"}/>
         )
       ) : // Desktop
       thisCoworkingSpace && !bookingSuccess ? (
@@ -82,7 +82,7 @@ const Booking = () => {
               <BookingPrice {...thisCoworkingSpace} />
               {error && <p>{error}</p>}
               <button
-                className="bigButton greenButton h2"
+                className="greenButton h2"
                 onClick={submitBooking}
               >
                 Book now!
@@ -91,7 +91,7 @@ const Booking = () => {
           </div>
         </div>
       ) : (
-        <BookingSuccess />
+        <BookingSuccess type={"booking"}/>
       )}
     </div>
   );

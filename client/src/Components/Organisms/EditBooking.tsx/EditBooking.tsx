@@ -13,6 +13,7 @@ import useEditBooking from "../../../utils/useEditBooking";
 const EditBooking = () => {
   const windowWidth = useWindowSize();
   const [confirmCancel, setConfirmCancel] = useState(false);
+  const [successMsg, setSuccessMsg] = useState<SuccessMsg>("edit")
 
   const { editBooking, bookingSuccess } = useDataContext();
   const { updateBooking, deleteBooking, error } = useEditBooking(editBooking);
@@ -22,7 +23,7 @@ const EditBooking = () => {
       {windowWidth <= 1000 ? (
         //Mobile
         editBooking && !bookingSuccess ? (
-          <div className="bookingContent">
+          <div className="editBookingContent">
             <h1>Edit dates</h1>
             <img
               className="coworkImg"
@@ -41,7 +42,7 @@ const EditBooking = () => {
             <BookingPrice {...editBooking.coworkingId} />
             <PaymentMethod />
             {error && <p>{error}</p>}
-            <button className="greenButton h2" onClick={updateBooking}>
+            <button className="greenButton h2" onClick={() => {updateBooking(); setSuccessMsg("edit")}}>
               Confirm changes
             </button>
             {confirmCancel ? (
@@ -49,6 +50,7 @@ const EditBooking = () => {
                 className="bigButton redButton h2"
                 onClick={() => {
                   deleteBooking();
+                  setSuccessMsg("delete");
                   setTimeout(() => setConfirmCancel(false), 1000);
                 }}
               >
@@ -64,11 +66,11 @@ const EditBooking = () => {
             )}
           </div>
         ) : (
-          <BookingSuccess />
+          <BookingSuccess type={successMsg}/>
         )
       ) : // Desktop
       editBooking && !bookingSuccess ? (
-        <div className="bookingContent">
+        <div className="editBookingContent">
           <div className="bookingCol">
             <h1 className="small">Edit dates</h1>
             <Calendar_ editBooking={editBooking} />
@@ -93,7 +95,7 @@ const EditBooking = () => {
             <div className="colBottom">
               <BookingPrice {...editBooking.coworkingId} />
               {error && <p>{error}</p>}
-              <button className="greenButton h2" onClick={updateBooking}>
+              <button className="greenButton h2" onClick={() => {updateBooking(); setSuccessMsg("edit")}}>
                 Confirm changes
               </button>
               {confirmCancel ? (
@@ -101,6 +103,7 @@ const EditBooking = () => {
                   className="redButton h2"
                   onClick={() => {
                     deleteBooking();
+                    setSuccessMsg("delete");
                     setTimeout(() => setConfirmCancel(false), 1000);
                   }}
                 >
@@ -118,7 +121,7 @@ const EditBooking = () => {
           </div>
         </div>
       ) : (
-        <BookingSuccess />
+        <BookingSuccess type={successMsg}/>
       )}
     </div>
   );

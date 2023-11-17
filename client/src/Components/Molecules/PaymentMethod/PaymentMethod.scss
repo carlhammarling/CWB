@@ -17,11 +17,15 @@
       border: 2px solid $lightGray;
       border-radius: 0.3rem;
       opacity: 0.7;
-      transition: 0.2s;
+      transition: 0.15s ease-in-out;
       cursor: pointer;
 
       @media (min-width: $breakpoint) {
         height: 80px;
+
+        &:hover {
+          opacity: 1;
+        }
 
       }
 

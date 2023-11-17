@@ -6,10 +6,11 @@
   justify-content: center;
   gap: $space-y-3;
 
- 
-  
+  @media (min-width: $breakpoint) {
+    height: 100%;
+  }
 
-  .bookingContent {
+  .editBookingContent {
     display: flex;
     flex-direction: column;
     gap: $space-y-3;
@@ -17,6 +18,7 @@
     @media (min-width: $breakpoint) {
       flex-direction: row;
       gap: $gap-desktop;
+      height: 100%;
 
       .bookingCol {
         width: 50%;
@@ -42,10 +44,5 @@
       aspect-ratio: 4/2;
 
     }
-  }
-
-  .bookingSuccess {
-    align-self: center;
-    margin-top: 5rem;
   }
 }

@@ -10,6 +10,11 @@
 
   cursor: pointer;
 
+  transition: 0.2s ease-in-out;
+  &:hover {
+    scale: 0.99;
+  }
+
   @media (min-width: $breakpoint) {
     box-shadow: none;
     margin-bottom: 0;
@@ -58,7 +63,6 @@
     }
   }
 }
-
 
 @mixin modalFade {
   @keyframes fadeUp {

@@ -11,9 +11,15 @@
 
   padding: 12px;
 
+  transition: 0.2s ease-in-out;
+  
+
   @media (min-width: $breakpoint) {
     flex-basis: 384px;
     height: 536px;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.08);    }
   }
   @media (min-width: $breakpoint2) {
     flex-basis: 464px;

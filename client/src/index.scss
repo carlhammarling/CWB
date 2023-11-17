@@ -34,10 +34,17 @@ button.bigButton:last-of-type {
 .greenButton {
   @include mixins.bigButton;
   background-color: $green;
+
+  &:hover {
+    background-color: $lightGreen;
+  }
 }
 .redButton {
   @include mixins.bigButton;
   background-color: $red;
+  &:hover {
+    background-color: $lightRed;
+  }
 }
 .invisibleButton {
   @include mixins.invisibleButton;

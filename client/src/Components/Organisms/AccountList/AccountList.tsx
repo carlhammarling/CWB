@@ -36,21 +36,21 @@ const AccountList = () => {
     }
   }, [token, bookingSuccess]);
 
-  useEffect(() => {
-    const now = new Date();
+    useEffect(() => {
 
-    const newB: BookedData[] = [];
-    const oldB: BookedData[] = [];
+      const now = new Date();
 
-    userBookings.map((booking) => {
-      //Change to checkout eventually
-      const bookingDate = new Date(booking.arriveDate);
-      if (bookingDate > now) {
-        newB.push(booking);
-      } else {
-        oldB.push(booking);
-      }
-    });
+      const newB: BookedData[] = [];
+      const oldB: BookedData[] = [];
+
+      userBookings.map((booking) => {
+        const bookingDate = new Date(booking.arriveDate);
+        if (bookingDate > now) {
+          newB.push(booking);
+        } else {
+          oldB.push(booking);
+        }
+      });
 
     newB.sort(
       (a, b) =>

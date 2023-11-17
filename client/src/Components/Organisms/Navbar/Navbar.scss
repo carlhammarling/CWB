@@ -38,6 +38,11 @@
     border-radius: 50%;
     color: $darkGray;
     cursor: pointer;
+    transition: .2s ease-in-out;
+    &:hover {
+      scale: .95;
+      color: $darkestGray;
+    }
 
     @media (min-width: $breakpoint) {
       width: 64px;

@@ -11,9 +11,6 @@ import { arraySlicer } from "../../utils/arraySlicer";
 const Home = () => {
   const { coworkingSpaces } = useDataContext();
 
-  useEffect(() => {
-    console.log(coworkingSpaces?.map(space => space.facilities));
-}, [coworkingSpaces]);
 
   if (!coworkingSpaces)
     return (

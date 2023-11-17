@@ -26,7 +26,6 @@
     @media (min-width: $breakpoint) {
       width: 470px;
       aspect-ratio: 10/7;
-
       object-fit: cover;
       border-radius: 0 12px;
     }
@@ -55,15 +54,21 @@
         background-color: transparent;
 
         i {
-          padding: 0.5rem;
+          padding: .4rem;
           font-size: 20px;
           cursor: pointer;
+          border-radius: 50%;
+          transition: .2s ease-in-out;
+          &:hover {
+            background-color: $lightestGray;
+            scale: .95;
+            color: $darkestGray;
+          }
 
           @media (min-width: $breakpoint) {
             font-size: 32px;
-
+            padding: 1rem;
           }
-
         }
       }
     }

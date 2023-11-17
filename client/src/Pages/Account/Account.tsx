@@ -13,7 +13,7 @@ const Account = () => {
     if (!userData) {
       navigate("/");
     }
-  }, []);
+  }, [userData]);
 
   useEffect(() => {
     if(bookingSuccess) {

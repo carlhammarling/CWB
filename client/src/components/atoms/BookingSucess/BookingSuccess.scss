@@ -1,0 +1,10 @@
+@import "../../../Styles/variables";
+
+.bookingSuccess {
+    align-self: center;
+    margin-top: 80px;
+
+    @media (min-width: $breakpoint) {
+        margin-top: 0px;
+    }
+  }

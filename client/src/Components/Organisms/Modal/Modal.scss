@@ -49,8 +49,13 @@
 
     @media (min-width: $breakpoint) {
       width: 1000px;
-      height: auto;
-      min-height: 70vh;
+      height: 95vh;
+      border-radius: 0 80px;
+    }
+    @media (min-width: $breakpoint2) {
+      width: 1000px;
+      height: 80vh;
+      max-height: 850px;
       border-radius: 0 80px;
     }
 
@@ -60,6 +65,16 @@
       padding: 12px;
       width: 100%;
       border-bottom: 1px solid $lineGray;
+
+      button {
+        border-radius: 50%;
+          transition: .2s ease-in-out;
+          &:hover {
+            background-color: $lightestGray;
+            scale: .95;
+            color: $darkestGray;
+          }
+      }
 
       @media (min-width: $breakpoint) {
         border: 0;

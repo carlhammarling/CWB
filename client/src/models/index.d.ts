@@ -71,3 +71,6 @@ interface BookedData {
 
 
 type CalenderValue = Date | null;
+
+type SuccessMsg = "booking" | "edit" | "delete";
+
