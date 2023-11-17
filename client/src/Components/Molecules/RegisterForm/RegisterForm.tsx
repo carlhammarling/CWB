@@ -43,7 +43,7 @@ const RegisterForm = ({ togglePage }: LoginFormProps) => {
     }
 
     if (formData.password !== formData.passwordRepeat) {
-      setError("Passwords are not matching");
+      setError("Passwords are not matching.");
       return;
     }
 
@@ -56,7 +56,7 @@ const RegisterForm = ({ togglePage }: LoginFormProps) => {
         setError(err.response?.data.message);
         return;
       }
-      setError("Unknown error");
+      setError("Unknown error.");
       console.log(err);
       return;
     }
@@ -99,7 +99,7 @@ const RegisterForm = ({ togglePage }: LoginFormProps) => {
         <p className="underline pointer" onClick={togglePage}>
           Login here
         </p>
-        <p>{error}</p>
+        <p className="errorMsg">{error}</p>
       </div>
       <button className="greenButton h2">Register</button>
     </form>

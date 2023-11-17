@@ -39,7 +39,7 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
         console.log(err);
         return;
       }
-      setError("Unknown error");
+      setError("Unknown error.");
       console.log(err);
       return;
     }
@@ -72,7 +72,7 @@ const LoginForm = ({ togglePage }: LoginFormProps) => {
         <p className="underline pointer" onClick={togglePage}>
           Register here
         </p>
-        <p>{error}</p>
+        <p className="errorMsg">{error}</p>
       </div>
       <button className="greenButton h2">Login</button>
     </form>

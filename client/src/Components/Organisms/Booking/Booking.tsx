@@ -45,7 +45,7 @@ const Booking = () => {
             <Calendar_ />
             <BookingPrice {...thisCoworkingSpace} />
             <PaymentMethod />
-            {error && <p>{error}</p>}
+            {error && <p className="errorMsg">{error}</p>}
             <button
               className="bigButton greenButton h2"
               onClick={submitBooking}
@@ -80,7 +80,7 @@ const Booking = () => {
             </div>
             <div className="colBottom">
               <BookingPrice {...thisCoworkingSpace} />
-              {error && <p>{error}</p>}
+              {error && <p className="errorMsg">{error}</p>}
               <button
                 className="greenButton h2"
                 onClick={submitBooking}

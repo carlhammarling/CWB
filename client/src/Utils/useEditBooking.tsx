@@ -15,7 +15,7 @@ const useEditBooking = (editBooking: BookedData | undefined) => {
 
   const updateBooking = async () => {
     if (!editBooking || !arriveDate || !checkoutDate || !price) {
-      setError("You have to fill in all the fields");
+      setError("You have to fill in all the fields!");
       return;
     }
     const bookingData: BookingData = {

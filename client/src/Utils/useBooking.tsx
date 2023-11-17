@@ -17,7 +17,7 @@ const useBooking = (id: string | undefined) => {
 
   const submitBooking = async () => {
     if (!thisCoworkingSpace || !arriveDate || !checkoutDate || !price) {
-      setError("You have to fill in all the fields");
+      setError("You have to fill in all the fields!");
       return;
     }
     const bookingData: BookingData = {

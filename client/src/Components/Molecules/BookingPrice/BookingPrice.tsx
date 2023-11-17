@@ -45,9 +45,9 @@ const BookingPrice = (thisCoworkingSpace: CoworkingSpace) => {
   return (
     <div className="bookingPrice">
       <div className="totPrice">
-        <p className="darkGray">Total price</p>
+        <p className="darkGray">Total price:</p>
         {price && <p className="darkGray">{price} THB</p>}
-        {!price && <p className="darkGray"></p>}
+        {!price && <p className="darkGray">- THB</p>}
       </div>
     </div>
   );

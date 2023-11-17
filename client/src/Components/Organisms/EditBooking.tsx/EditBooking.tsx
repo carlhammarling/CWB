@@ -41,7 +41,7 @@ const EditBooking = () => {
             <Calendar_ editBooking={editBooking} />
             <BookingPrice {...editBooking.coworkingId} />
             <PaymentMethod />
-            {error && <p>{error}</p>}
+            {error && <p className="errorMsg">{error}</p>}
             <button className="greenButton h2" onClick={() => {updateBooking(); setSuccessMsg("edit")}}>
               Confirm changes
             </button>
@@ -94,7 +94,7 @@ const EditBooking = () => {
             </div>
             <div className="colBottom">
               <BookingPrice {...editBooking.coworkingId} />
-              {error && <p>{error}</p>}
+              {error && <p className="errorMsg">{error}</p>}
               <button className="greenButton h2" onClick={() => {updateBooking(); setSuccessMsg("edit")}}>
                 Confirm changes
               </button>
