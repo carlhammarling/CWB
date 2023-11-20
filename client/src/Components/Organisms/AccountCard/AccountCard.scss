@@ -1,4 +1,4 @@
-@import "../../../Styles/variables";
+@import "../../../styles/variables";
 
 .accountCard {
   background-color: $white;
@@ -10,12 +10,11 @@
     width: 85vw;
     gap: $gap-desktop;
     padding: 32px;
-
   }
 
-  &.oldBooking {
-    opacity: 0.7;
-  }
+  // &.oldBooking {
+  //   opacity: 0.7;
+  // }
 
   img {
     width: 120px;
@@ -49,24 +48,47 @@
         gap: $space-x-1;
       }
 
-      button {
-        border: 0;
-        background-color: transparent;
+      .userActions {
+        display: flex;
+        flex-direction: column;
+        gap: $space-x-1;
+        align-items: center;
 
-        i {
-          padding: .4rem;
-          font-size: 20px;
-          cursor: pointer;
+        button {
+          border: 0;
+          background-color: transparent;
+
+          i {
+            padding: 0.4rem;
+            font-size: 20px;
+            cursor: pointer;
+            color: $darkGray;
+            border-radius: 50%;
+            transition: 0.2s ease-in-out;
+            &:hover {
+              background-color: $lightestGray;
+              scale: 0.95;
+              color: $darkestGray;
+            }
+            @media (min-width: $breakpoint) {
+              font-size: 32px;
+              padding: 1rem;
+            }
+          }
+        }
+        .fa-circle-info {
+          color: $darkGray;
+          font-size: 22px;
+          padding: 0.4rem;
+
           border-radius: 50%;
-          transition: .2s ease-in-out;
+          transition: 0.2s ease-in-out;
           &:hover {
-            background-color: $lightestGray;
-            scale: .95;
+            scale: 0.95;
             color: $darkestGray;
           }
-
           @media (min-width: $breakpoint) {
-            font-size: 32px;
+            font-size: 38px;
             padding: 1rem;
           }
         }
@@ -81,6 +103,7 @@
       display: flex;
       justify-content: space-between;
       flex-grow: 1;
+      padding-top: $space-x-1;
       align-items: flex-end;
     }
   }

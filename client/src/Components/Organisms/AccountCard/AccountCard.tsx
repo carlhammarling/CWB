@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { dateConverter } from "../../../utils/dateConverter";
 import "./AccountCard.scss";
 import { useDataContext } from "../../../contexts/DataContext";
 import useWindowSize from "../../../utils/useWindowSize";
 import AdressContact from "../../molecules/AdressContact/AdressContact";
 import FacilityTextAtomRow from "../../molecules/FacilityTextAtomRow/FacilityTextAtomRow";
+import { Link } from "react-router-dom";
 
 const AccountCard = (props: accountCardProps) => {
   const { setShowModal, setEdit, setEditBooking } = useDataContext();
@@ -19,27 +19,40 @@ const AccountCard = (props: accountCardProps) => {
             <h3>{props.booking.coworkingId.name}</h3>
             {windowWidth >= 1000 && (
               <>
-              <AdressContact
-                email={props.booking.coworkingId.email}
-                adress={props.booking.coworkingId.adress}
-              />
-              <FacilityTextAtomRow facilities={props.booking.coworkingId.facilities} />
+                <AdressContact
+                  email={props.booking.coworkingId.email}
+                  adress={props.booking.coworkingId.adress}
+                />
+                <FacilityTextAtomRow
+                  facilities={props.booking.coworkingId.facilities}
+                />
               </>
             )}
           </div>
-          {props.edit ? (
-            <button
-              onClick={() => {
-                setShowModal(true);
-                setEdit(true);
-                setEditBooking(props.booking);
-              }}
-            >
-              <i className="fa-solid fa-pen"></i>
-            </button>
-          ) : (
-            <></>
-          )}
+          <div className="userActions">
+            {props.edit ? (
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setEdit(true);
+                  setEditBooking(props.booking);
+                }}
+              >
+                <i className="fa-solid fa-pen"></i>
+              </button>
+            ) : (
+              <></>
+            )}
+            <div>
+              <Link
+                className="infoLink"
+                to={`/cowork/${props.booking.coworkingId._id}`}
+                target="_blank"
+              >
+                <i className="fa-solid fa-circle-info"></i>{" "}
+              </Link>
+            </div>
+          </div>
         </div>
         {windowWidth <= 1000 ? (
           <div className="cardBottom">

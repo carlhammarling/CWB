@@ -20,6 +20,7 @@ const useBooking = (id: string | undefined) => {
       setError("You have to fill in all the fields!");
       return;
     }
+
     const bookingData: BookingData = {
       coworkingId: thisCoworkingSpace._id,
       paymentMethod: selectedPM,

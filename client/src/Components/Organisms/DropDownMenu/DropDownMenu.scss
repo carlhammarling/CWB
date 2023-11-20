@@ -1,6 +1,6 @@
-@use '../../../Styles/mixins';
+@use '../../../styles/mixins';
 @include mixins.modalFade;
-@import "../../../Styles/variables";
+@import "../../../styles/variables";
 
 .dropdownWrapper {
   position: fixed;

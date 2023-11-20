@@ -25,9 +25,10 @@ const Calendar_ = ({ editBooking }: CalendarProps) => {
     if (!arriveDate) {
       setArriveDate(selectedDate);
     }
-    if (arriveDate && !checkoutDate) {
+    else if (arriveDate && !checkoutDate) {
       setCheckoutDate(selectedDate);
-    } else {
+    }
+     else {
       setArriveDate(selectedDate);
       setCheckoutDate(null);
     }

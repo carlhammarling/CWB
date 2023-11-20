@@ -25,11 +25,19 @@ const bookingSchema = mongoose.Schema(
 );
 
 function dateValidator(value) {
-  const now = new Date();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const arriveDay = new Date(this.arriveDate);
+  arriveDay.setHours(0, 0, 0, 0);
+
+  const checkoutDay = new Date(this.checkoutDate);
+  checkoutDay.setHours(0, 0, 0, 0);
+
   return (
-    this.arriveDate >= now &&
-    this.checkoutDate >= now &&
-    this.arriveDate <= this.checkoutDate
+    arriveDay >= today &&
+    checkoutDay >= today &&
+    arriveDay <= checkoutDay
   );
 }
 
