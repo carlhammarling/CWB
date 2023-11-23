@@ -35,7 +35,7 @@ const AccountCard = (props: accountCardProps) => {
                 onClick={() => {
                   setShowModal(true);
                   setEdit(true);
-                  setEditBooking(props.booking);
+                  setEditBooking( props.booking);
                 }}
               >
                 <i className="fa-solid fa-pen"></i>
